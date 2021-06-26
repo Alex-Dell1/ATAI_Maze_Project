@@ -1,10 +1,11 @@
 :- use_module('metagol.pl').
 
-metagol:max_clauses(5).
+metagol:max_clauses(2).
 
 %%% METARULES %%%
+metarule(chain, [P,Q], [P,A,B], [[Q,A,C], [P,C,B]]).
 metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
-metarule(postcon, [P,Q,R], [P,A,B], [[Q,A,B], [R,B]]).
+metarule(postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
 
 %%% BACKGROUND KNOWLEDGE %%%
 width(5).
@@ -19,6 +20,9 @@ obstacle((2,4)).
 obstacle((1,4)).
 obstacle((1,5)).
 obstacle((5,1)).
+
+start(1,1).
+goal(2,5).
 
 % Check whether two coordinates are in bounds.
 in_range((X, Y)) :-
@@ -61,30 +65,32 @@ legal_position((X, Y)) :-
     in_range((X, Y)),
     is_free((X, Y)).
 
-%%% Here Prolog, this is what you should know. %%%
-body_pred(inc_x/2).
-body_pred(dec_x/2).
-body_pred(inc_y/2).
-body_pred(dec_y/2).
-body_pred(legal_position/1).
+% BK previously learned from 'learning_to_walk.pl'.
+move(A,B):-
+    move_1(A,B),
+    legal_position(B).
+
+move_1(A,B):-
+    inc_x(A,B).
+move_1(A,B):-
+    inc_y(A,B).
+move_1(A,B):-
+    dec_x(A,B).
+move_1(A,B):-
+    dec_y(A,B).
+
+%%% Here Prolog, this is what you sholud know. %%%
+body_pred(move/2).
 
 %%% EXAMPLES %%%
 
-learn_to_walk :-
+learn_to_travel :-
     Pos = [
-        move((2,1), (3,1)),
-        move((3,3), (4,3)),
-        move((4,2), (4,3)),
-        move((5,3), (5,4)),
-        move((3,1), (2,1)),
-        move((4,3), (4,2))
+        reach((1,1), (2,1)),
+        reach((1,1), (2,5))
     ],
 
     Neg = [
-        move((4,1), (5,1)),
-        move((3,3), (3,4)),
-        move((1,1), (0,1)),
-        move((5,2), (5,1))
     ],
 
     learn(Pos, Neg).
