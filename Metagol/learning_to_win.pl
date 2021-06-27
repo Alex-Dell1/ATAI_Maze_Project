@@ -1,10 +1,10 @@
 :- use_module('metagol.pl').
 
-metagol:max_clauses(2).
+%metagol:max_clauses(2).
 
 %%% METARULES %%%
-metarule(chain, [P,Q], [P,A,B], [[Q,A,C], [P,C,B]]).
 metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
+metarule(chain, [P,Q], [P,A,B], [[Q,A,C], [P,C,B]]).
 metarule(postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
 
 %%% BACKGROUND KNOWLEDGE %%%
@@ -21,8 +21,8 @@ obstacle((1,4)).
 obstacle((1,5)).
 obstacle((5,1)).
 
-start(1,1).
-goal(2,5).
+start((1,1)).
+goal((2,5)).
 
 % Check whether two coordinates are in bounds.
 in_range((X, Y)) :-
@@ -79,18 +79,21 @@ move_1(A,B):-
 move_1(A,B):-
     dec_y(A,B).
 
+% BK previously learned from 'learning_to_travel.pl'.
+reach(A,B):-
+    move(A,B).
+reach(A,B):-
+    move(A,C),
+    reach(C,B).
+
 %%% Here Prolog, this is what you should know. %%%
-body_pred(move/2).
+body_pred(reach/2).
 
-%%% EXAMPLES %%%
-
-learn_to_travel :-
+learn_to_win :-
+    start(S),
+    goal(G),
     Pos = [
-        reach((1,1), (2,1)),
-        reach((1,1), (2,5))
+        path(S, G)
     ],
 
-    Neg = [
-    ],
-
-    learn(Pos, Neg).
+    learn(Pos, []).
