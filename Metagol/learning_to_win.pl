@@ -4,8 +4,8 @@
 
 %%% METARULES %%%
 metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
-metarule(chain, [P,Q], [P,A,B], [[Q,A,C], [P,C,B]]).
-metarule(postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
+metarule(chain, [P,Q,R], [P,A,B], [[Q,A,C], [R,C,B]]).
+metarule(postcon, [P,Q,R], [P,A,B], [[Q,A,B], [R,B]]).
 
 %%% BACKGROUND KNOWLEDGE %%%
 width(5).
@@ -87,13 +87,12 @@ reach(A,B):-
     reach(C,B).
 
 %%% Here Prolog, this is what you should know. %%%
-body_pred(reach/2).
+body_pred(move/2).
 
 learn_to_win :-
-    start(S),
-    goal(G),
+
     Pos = [
-        path(S, G)
+        path((1,1), (5,2))
     ],
 
     learn(Pos, []).
