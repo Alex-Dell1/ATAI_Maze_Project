@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.0 (MiKTeX 21.3) (format=luahblatex 2021.4.29)  28 JUN 2021 13:54
+This is LuaHBTeX, Version 1.13.0 (MiKTeX 21.3) (format=luahblatex 2021.4.29)  29 JUN 2021 12:33
  restricted system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/salex/OneDrive/Documents/Prolog/ATAI_Maze_Project/Project_Report.tex
@@ -959,29 +959,42 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<img/Maze_simple.svg.png, id=41, 1204.5pt x 755.82375pt>
+(./tex_sections/intro.tex
+<img/Maze_simple.svg.png, id=40, 1204.5pt x 755.82375pt>
 File: img/Maze_simple.svg.png Graphic file (type png)
 <use img/Maze_simple.svg.png>
-Package luatex.def Info: img/Maze_simple.svg.png  used on input line 54.
+Package luatex.def Info: img/Maze_simple.svg.png  used on input line 5.
 (luatex.def)             Requested size: 120.45705pt x 75.58679pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
+
+ []
+
+) (./tex_sections/background.tex
+Underfull \hbox (badness 10000) in paragraph at lines 13--1
+
+ []
 
 [1
 
-{C:/Users/salex/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2
+{C:/Users/salex/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 warning  (pdf backend): ignoring duplicate destination with the name 'figure.1'
-<./img/Maze_simple.svg.png>] (./Project_Report.aux)
+<./img/Maze_simple.svg.png>]) (./tex_sections/implementation.tex)
+(./tex_sections/hyper.tex) (./tex_sections/metagol.tex)
+(./tex_sections/ilasp.tex) (./tex_sections/performance_comp.tex) [2]
+(./Project_Report.aux)
 Package rerunfilecheck Info: File `Project_Report.out' has not changed.
 (rerunfilecheck)             Checksum: 7CA1F7687EB4F6EC71EFCBB7017584F5;799.
 )
 
 Here is how much of LuaTeX's memory you used:
- 35328 strings out of 478531
+ 35399 strings out of 478531
  100000,1373583 words of node,token memory allocated
  515 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 8 attribute, 56 glue_spec,
  8 attribute_list, 2 write nodes
-   avail lists: 2:322,3:167,4:32,5:193,6:26,7:3241,8:26,9:132,10:8,11:212
- 54241 multiletter control sequences out of 65536+600000
+   avail lists: 2:246,3:124,4:40,5:207,6:22,7:3791,8:21,9:146,10:15,11:251
+ 54249 multiletter control sequences out of 65536+600000
  48 fonts using 4680759 bytes
  102i,7n,98p,508b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
 <//?/c:/users/salex/appdata/local/programs/miktex/fonts/opentype/public/lm/lmrom
@@ -991,9 +1004,9 @@ x/fonts/opentype/public/lm/lmroman12-bold.otf><//?/c:/users/salex/appdata/local/
 programs/miktex/fonts/opentype/public/lm/lmroman12-regular.otf><//?/c:/users/sal
 ex/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman17-regular.otf>
 
-Output written on Project_Report.pdf (2 pages, 50184 bytes).
+Output written on Project_Report.pdf (2 pages, 51672 bytes).
 
-PDF statistics: 93 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 94 PDF objects out of 1000 (max. 8388607)
  12 named destinations out of 1000 (max. 131072)
  80 words of extra memory for PDF output out of 10000 (max. 100000000)
 
