@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.0 (MiKTeX 21.3) (format=luahblatex 2021.4.29)  29 JUN 2021 12:33
+This is LuaHBTeX, Version 1.13.0 (MiKTeX 21.3) (format=luahblatex 2021.4.29)  29 JUN 2021 12:52
  restricted system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/salex/OneDrive/Documents/Prolog/ATAI_Maze_Project/Project_Report.tex
@@ -328,8 +328,31 @@ LaTeX Info: Redefining \] on input line 2924.
 \WF@everypar=\toks24
 Package: wrapfig 2003/01/31  v 3.6
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 14.
+(C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/listings/listings.sty
+\lst@mode=\count275
+\lst@gtempboxa=\box50
+\lst@token=\toks25
+\lst@length=\count276
+\lst@currlwidth=\dimen164
+\lst@column=\count277
+\lst@pos=\count278
+\lst@lostspace=\dimen165
+\lst@width=\dimen166
+\lst@newlines=\count279
+\lst@lineno=\count280
+\lst@maxwidth=\dimen167
 
+(C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count281
+\lst@skipnumbers=\count282
+\lst@framebox=\box51
+)
+(C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+Package hyperref Info: Option `colorlinks' set `true' on input line 20.
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/bbm/bbm.sty
 Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
 LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
@@ -341,15 +364,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
 Package: mathtools 2021/04/12 v1.27 mathematical typesetting tools
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/latex-tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count275
-\calc@Bcount=\count276
-\calc@Adimen=\dimen164
-\calc@Bdimen=\dimen165
+\calc@Acount=\count283
+\calc@Bcount=\count284
+\calc@Adimen=\dimen168
+\calc@Bdimen=\dimen169
 \calc@Askip=\skip53
 \calc@Bskip=\skip54
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count277
+\calc@Ccount=\count285
 \calc@Cskip=\skip55
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/mathtools/mhsetup.sty
@@ -359,17 +382,17 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
-\g_MT_multlinerow_int=\count278
-\l_MT_multwidth_dim=\dimen166
+\g_MT_multlinerow_int=\count286
+\l_MT_multwidth_dim=\dimen170
 \origjot=\skip56
-\l_MT_shortvdotswithinadjustabove_dim=\dimen167
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen168
-\l_MT_above_intertext_sep=\dimen169
-\l_MT_below_intertext_sep=\dimen170
-\l_MT_above_shortintertext_sep=\dimen171
-\l_MT_below_shortintertext_sep=\dimen172
-\xmathstrut@box=\box50
-\xmathstrut@dim=\dimen173
+\l_MT_shortvdotswithinadjustabove_dim=\dimen171
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen172
+\l_MT_above_intertext_sep=\dimen173
+\l_MT_below_intertext_sep=\dimen174
+\l_MT_above_shortintertext_sep=\dimen175
+\l_MT_below_shortintertext_sep=\dimen176
+\xmathstrut@box=\box52
+\xmathstrut@dim=\dimen177
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/algorithms/algorithm.st
 y
@@ -377,17 +400,17 @@ Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
  (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count279
-\float@exts=\toks25
-\float@box=\box51
-\@float@everytoks=\toks26
-\@floatcapt=\box52
+\c@float@type=\count287
+\float@exts=\toks26
+\float@box=\box53
+\@float@everytoks=\toks27
+\@floatcapt=\box54
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\@float@every@algorithm=\toks27
-\c@algorithm=\count280
+\@float@every@algorithm=\toks28
+\c@algorithm=\count288
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/circuitikz/circuitikz.s
 ty
@@ -401,15 +424,15 @@ sty
 y
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfutil
 -common.tex
-\pgfutil@everybye=\toks28
-\pgfutil@tempdima=\dimen174
-\pgfutil@tempdimb=\dimen175
+\pgfutil@everybye=\toks29
+\pgfutil@tempdima=\dimen178
+\pgfutil@tempdimb=\dimen179
 
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfutil
 -common-lists.tex))
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfutil
 -latex.def
-\pgfutil@abb=\box53
+\pgfutil@abb=\box55
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfrcs.
 code.tex
@@ -428,33 +451,33 @@ Package: pgfsys 2020/12/27 v3.1.8b (3.1.8b)
 
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfkeys
 .code.tex
-\pgfkeys@pathtoks=\toks29
-\pgfkeys@temptoks=\toks30
+\pgfkeys@pathtoks=\toks30
+\pgfkeys@temptoks=\toks31
 
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/utilities/pgfkeys
 filtered.code.tex
-\pgfkeys@tmptoks=\toks31
+\pgfkeys@tmptoks=\toks32
 ))
-\pgf@x=\dimen176
-\pgf@y=\dimen177
-\pgf@xa=\dimen178
-\pgf@ya=\dimen179
-\pgf@xb=\dimen180
-\pgf@yb=\dimen181
-\pgf@xc=\dimen182
-\pgf@yc=\dimen183
-\pgf@xd=\dimen184
-\pgf@yd=\dimen185
+\pgf@x=\dimen180
+\pgf@y=\dimen181
+\pgf@xa=\dimen182
+\pgf@ya=\dimen183
+\pgf@xb=\dimen184
+\pgf@yb=\dimen185
+\pgf@xc=\dimen186
+\pgf@yc=\dimen187
+\pgf@xd=\dimen188
+\pgf@yd=\dimen189
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count281
-\c@pgf@countb=\count282
-\c@pgf@countc=\count283
-\c@pgf@countd=\count284
-\t@pgf@toka=\toks32
-\t@pgf@tokb=\toks33
-\t@pgf@tokc=\toks34
-\pgf@sys@id@count=\count285
+\c@pgf@counta=\count289
+\c@pgf@countb=\count290
+\c@pgf@countc=\count291
+\c@pgf@countd=\count292
+\t@pgf@toka=\toks33
+\t@pgf@tokb=\toks34
+\t@pgf@tokc=\toks35
+\pgf@sys@id@count=\count293
 
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgf.c
 fg
@@ -473,8 +496,8 @@ File: pgfsys-common-pdf.def 2020/12/27 v3.1.8b (3.1.8b)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgfsy
 ssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfsyssoftpath@smallbuffer@items=\count286
-\pgfsyssoftpath@bigbuffer@items=\count287
+\pgfsyssoftpath@smallbuffer@items=\count294
+\pgfsyssoftpath@bigbuffer@items=\count295
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/systemlayer/pgfsy
 sprotocol.code.tex
@@ -509,12 +532,12 @@ code.tex
 code.tex)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathparse
 r.code.tex
-\pgfmath@dimen=\dimen186
-\pgfmath@count=\count288
-\pgfmath@box=\box54
-\pgfmath@toks=\toks35
-\pgfmath@stack@operand=\toks36
-\pgfmath@stack@operation=\toks37
+\pgfmath@dimen=\dimen190
+\pgfmath@count=\count296
+\pgfmath@box=\box56
+\pgfmath@toks=\toks36
+\pgfmath@stack@operand=\toks37
+\pgfmath@stack@operation=\toks38
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfunct
 ions.code.tex
@@ -536,59 +559,59 @@ ions.misc.code.tex)
 ions.integerarithmetics.code.tex)))
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmathfloat
 .code.tex
-\c@pgfmathroundto@lastzeros=\count289
+\c@pgfmathroundto@lastzeros=\count297
 ))
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfint.code.
 tex)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 epoints.code.tex
 File: pgfcorepoints.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgf@picminx=\dimen187
-\pgf@picmaxx=\dimen188
-\pgf@picminy=\dimen189
-\pgf@picmaxy=\dimen190
-\pgf@pathminx=\dimen191
-\pgf@pathmaxx=\dimen192
-\pgf@pathminy=\dimen193
-\pgf@pathmaxy=\dimen194
-\pgf@xx=\dimen195
-\pgf@xy=\dimen196
-\pgf@yx=\dimen197
-\pgf@yy=\dimen198
-\pgf@zx=\dimen199
-\pgf@zy=\dimen256
+\pgf@picminx=\dimen191
+\pgf@picmaxx=\dimen192
+\pgf@picminy=\dimen193
+\pgf@picmaxy=\dimen194
+\pgf@pathminx=\dimen195
+\pgf@pathmaxx=\dimen196
+\pgf@pathminy=\dimen197
+\pgf@pathmaxy=\dimen198
+\pgf@xx=\dimen199
+\pgf@xy=\dimen256
+\pgf@yx=\dimen257
+\pgf@yy=\dimen258
+\pgf@zx=\dimen259
+\pgf@zy=\dimen260
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 epathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgf@path@lastx=\dimen257
-\pgf@path@lasty=\dimen258
+\pgf@path@lastx=\dimen261
+\pgf@path@lasty=\dimen262
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 epathusage.code.tex
 File: pgfcorepathusage.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgf@shorten@end@additional=\dimen259
-\pgf@shorten@start@additional=\dimen260
+\pgf@shorten@end@additional=\dimen263
+\pgf@shorten@start@additional=\dimen264
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 escopes.code.tex
 File: pgfcorescopes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfpic=\box55
-\pgf@hbox=\box56
-\pgf@layerbox@main=\box57
-\pgf@picture@serial@count=\count290
+\pgfpic=\box57
+\pgf@hbox=\box58
+\pgf@layerbox@main=\box59
+\pgf@picture@serial@count=\count298
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 egraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgflinewidth=\dimen261
+\pgflinewidth=\dimen265
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 etransformations.code.tex
 File: pgfcoretransformations.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgf@pt@x=\dimen262
-\pgf@pt@y=\dimen263
-\pgf@pt@temp=\dimen264
+\pgf@pt@x=\dimen266
+\pgf@pt@y=\dimen267
+\pgf@pt@temp=\dimen268
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 equick.code.tex
@@ -605,14 +628,14 @@ File: pgfcorepathprocessing.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 earrows.code.tex
 File: pgfcorearrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfarrowsep=\dimen265
+\pgfarrowsep=\dimen269
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 eshade.code.tex
 File: pgfcoreshade.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgf@max=\dimen266
-\pgf@sys@shading@range@num=\count291
-\pgf@shadingcount=\count292
+\pgf@max=\dimen270
+\pgf@sys@shading@range@num=\count299
+\pgf@shadingcount=\count300
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 eimage.code.tex
@@ -621,7 +644,7 @@ File: pgfcoreimage.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 eexternal.code.tex
 File: pgfcoreexternal.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfexternal@startupbox=\box58
+\pgfexternal@startupbox=\box60
 ))
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfcor
 elayers.code.tex
@@ -642,7 +665,7 @@ File: pgfcorerdf.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/modules/pgfmodule
 shapes.code.tex
 File: pgfmoduleshapes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfnodeparttextbox=\box59
+\pgfnodeparttextbox=\box61
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/modules/pgfmodule
 plot.code.tex
@@ -651,8 +674,8 @@ File: pgfmoduleplot.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/pgf/compatibility/pgfco
 mp-version-0-65.sty
 Package: pgfcomp-version-0-65 2020/12/27 v3.1.8b (3.1.8b)
-\pgf@nodesepstart=\dimen267
-\pgf@nodesepend=\dimen268
+\pgf@nodesepstart=\dimen271
+\pgf@nodesepend=\dimen272
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/pgf/compatibility/pgfco
 mp-version-1-18.sty
@@ -673,10 +696,10 @@ Package: pgffor 2020/12/27 v3.1.8b (3.1.8b)
 
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/math/pgfmath.code
 .tex)
-\pgffor@iter=\dimen269
-\pgffor@skip=\dimen270
-\pgffor@stack=\toks38
-\pgffor@toks=\toks39
+\pgffor@iter=\dimen273
+\pgffor@skip=\dimen274
+\pgffor@stack=\toks39
+\pgffor@toks=\toks40
 ))
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tik
 z/tikz.code.tex
@@ -685,34 +708,34 @@ Package: tikz 2020/12/27 v3.1.8b (3.1.8b)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/pgflibr
 aryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgf@plot@mark@count=\count293
-\pgfplotmarksize=\dimen271
+\pgf@plot@mark@count=\count301
+\pgfplotmarksize=\dimen275
 )
-\tikz@lastx=\dimen272
-\tikz@lasty=\dimen273
-\tikz@lastxsaved=\dimen274
-\tikz@lastysaved=\dimen275
-\tikz@lastmovetox=\dimen276
-\tikz@lastmovetoy=\dimen277
-\tikzleveldistance=\dimen278
-\tikzsiblingdistance=\dimen279
-\tikz@figbox=\box60
-\tikz@figbox@bg=\box61
-\tikz@tempbox=\box62
-\tikz@tempbox@bg=\box63
-\tikztreelevel=\count294
-\tikznumberofchildren=\count295
-\tikznumberofcurrentchild=\count296
-\tikz@fig@count=\count297
+\tikz@lastx=\dimen276
+\tikz@lasty=\dimen277
+\tikz@lastxsaved=\dimen278
+\tikz@lastysaved=\dimen279
+\tikz@lastmovetox=\dimen280
+\tikz@lastmovetoy=\dimen281
+\tikzleveldistance=\dimen282
+\tikzsiblingdistance=\dimen283
+\tikz@figbox=\box62
+\tikz@figbox@bg=\box63
+\tikz@tempbox=\box64
+\tikz@tempbox@bg=\box65
+\tikztreelevel=\count302
+\tikznumberofchildren=\count303
+\tikznumberofcurrentchild=\count304
+\tikz@fig@count=\count305
 
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/modules/pgfmodule
 matrix.code.tex
 File: pgfmodulematrix.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfmatrixcurrentrow=\count298
-\pgfmatrixcurrentcolumn=\count299
-\pgf@matrix@numberofcolumns=\count300
+\pgfmatrixcurrentrow=\count306
+\pgfmatrixcurrentcolumn=\count307
+\pgf@matrix@numberofcolumns=\count308
 )
-\tikz@expandcount=\count301
+\tikz@expandcount=\count309
 
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tik
 z/libraries/tikzlibrarytopaths.code.tex
@@ -725,10 +748,10 @@ File: tikzlibrarycalc.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/pgflibr
 aryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfarrowinset=\dimen280
-\pgfarrowlength=\dimen281
-\pgfarrowwidth=\dimen282
-\pgfarrowlinewidth=\dimen283
+\pgfarrowinset=\dimen284
+\pgfarrowlength=\dimen285
+\pgfarrowwidth=\dimen286
+\pgfarrowlinewidth=\dimen287
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tik
 z/libraries/tikzlibrarybending.code.tex
@@ -741,18 +764,18 @@ File: pgfmodulebending.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/modules/pgfmodule
 nonlineartransformations.code.tex
 File: pgfmodulenonlineartransformations.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgftransformnonlinearflatness=\dimen284
+\pgftransformnonlinearflatness=\dimen288
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/libraries/pgflibr
 arycurvilinear.code.tex
 File: pgflibrarycurvilinear.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgf@curvilinear@time@a=\dimen285
-\pgf@curvilinear@length@a=\dimen286
-\pgf@curvilinear@length@b=\dimen287
-\pgf@curvilinear@length@c=\dimen288
-\pgf@curvilinear@length@d=\dimen289
+\pgf@curvilinear@time@a=\dimen289
+\pgf@curvilinear@length@a=\dimen290
+\pgf@curvilinear@length@b=\dimen291
+\pgf@curvilinear@length@c=\dimen292
+\pgf@curvilinear@length@d=\dimen293
 )
-\pgf@arrows@the@rigidity=\dimen290
+\pgf@arrows@the@rigidity=\dimen294
 ))
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/pgf/frontendlayer/tik
 z/libraries/tikzlibraryfpu.code.tex
@@ -760,20 +783,20 @@ z/libraries/tikzlibraryfpu.code.tex
 aryfpu.code.tex))
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/circuitikz/pgfcirc.de
 fines.tex
-\pgf@circ@count@a=\count302
-\pgf@circ@count@b=\count303
-\pgf@circ@count@c=\count304
-\pgf@circ@res@up=\dimen291
-\pgf@circ@res@down=\dimen292
-\pgf@circ@res@zero=\dimen293
-\pgf@circ@res@left=\dimen294
-\pgf@circ@res@right=\dimen295
-\pgf@circ@res@other=\dimen296
-\pgf@circ@res@step=\dimen297
-\pgf@circ@res@temp=\dimen298
-\pgf@circ@Rlen=\dimen299
-\pgf@circ@scaled@Rlen=\dimen300
-\pgfstartlinewidth=\dimen301
+\pgf@circ@count@a=\count310
+\pgf@circ@count@b=\count311
+\pgf@circ@count@c=\count312
+\pgf@circ@res@up=\dimen295
+\pgf@circ@res@down=\dimen296
+\pgf@circ@res@zero=\dimen297
+\pgf@circ@res@left=\dimen298
+\pgf@circ@res@right=\dimen299
+\pgf@circ@res@other=\dimen300
+\pgf@circ@res@step=\dimen301
+\pgf@circ@res@temp=\dimen302
+\pgf@circ@Rlen=\dimen303
+\pgf@circ@scaled@Rlen=\dimen304
+\pgfstartlinewidth=\dimen305
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/circuitikz/pgfcircuti
 ls.tex)
@@ -787,7 +810,7 @@ opoles.tex)
 oles.tex)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/circuitikz/pgfcirctri
 poles.tex
-\pgf@circ@res@count=\count305
+\pgf@circ@res@count=\count313
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/circuitikz/pgfcircqua
 dpoles.tex)
@@ -797,7 +820,7 @@ tipoles.tex)
 el.tex)
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/circuitikz/pgfcircvol
 tage.tex
-\pgfcirc@labelshift=\dimen302
+\pgfcirc@labelshift=\dimen306
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/generic/circuitikz/pgfcirccur
 rent.tex)
@@ -812,15 +835,15 @@ cx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count306
-\c@ALG@rem=\count307
-\c@ALG@nested=\count308
+\c@ALG@line=\count314
+\c@ALG@rem=\count315
+\c@ALG@nested=\count316
 \ALG@tlm=\skip57
 \ALG@thistlm=\skip58
-\c@ALG@Lnr=\count309
-\c@ALG@blocknr=\count310
-\c@ALG@storecount=\count311
-\c@ALG@tmpcounter=\count312
+\c@ALG@Lnr=\count317
+\c@ALG@blocknr=\count318
+\c@ALG@storecount=\count319
+\c@ALG@tmpcounter=\count320
 \ALG@tmplength=\skip59
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -828,52 +851,52 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-lua
 tex.def
 File: l3backend-luatex.def 2021-03-18 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count313
-\l__pdf_internal_box=\box64
+\l__color_backend_stack_int=\count321
+\l__pdf_internal_box=\box66
 ) (./Project_Report.aux)
 \openout1 = Project_Report.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3
-3.
+9.
 
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count314
-\scratchdimen=\dimen303
-\scratchbox=\box65
-\nofMPsegments=\count315
-\nofMParguments=\count316
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count317
-\MPscratchDim=\dimen304
-\MPnumerator=\count318
-\makeMPintoPDFobject=\count319
-\everyMPtoPDFconversion=\toks41
+\scratchcounter=\count322
+\scratchdimen=\dimen307
+\scratchbox=\box67
+\nofMPsegments=\count323
+\nofMParguments=\count324
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count325
+\MPscratchDim=\dimen308
+\MPnumerator=\count326
+\makeMPintoPDFobject=\count327
+\everyMPtoPDFconversion=\toks42
 )
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-b
 ase.sty
@@ -927,7 +950,7 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 33.
+Package hyperref Info: Link coloring ON on input line 39.
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -938,22 +961,23 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count320
+\c@section@level=\count328
 )
-LaTeX Info: Redefining \ref on input line 33.
-LaTeX Info: Redefining \pageref on input line 33.
-LaTeX Info: Redefining \nameref on input line 33.
+LaTeX Info: Redefining \ref on input line 39.
+LaTeX Info: Redefining \pageref on input line 39.
+LaTeX Info: Redefining \nameref on input line 39.
  (./Project_Report.out) (./Project_Report.out)
 \@outlinefile=\write4
 
 \openout4 = Project_Report.out
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+\c@lstlisting=\count329
+LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
 
 
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
 
 
 (C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/amsfonts/umsb.fd
@@ -970,8 +994,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--12
 
  []
 
-) (./tex_sections/background.tex
-Underfull \hbox (badness 10000) in paragraph at lines 13--1
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--24
 
  []
 
@@ -979,34 +1003,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--1
 
 {C:/Users/salex/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 warning  (pdf backend): ignoring duplicate destination with the name 'figure.1'
-<./img/Maze_simple.svg.png>]) (./tex_sections/implementation.tex)
+<./img/Maze_simple.svg.png>]
+(C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+(C:/Users/salex/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2020/03/24 1.8d listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 28.
+) (./tex_sections/background.tex) (./tex_sections/implementation.tex)
 (./tex_sections/hyper.tex) (./tex_sections/metagol.tex)
-(./tex_sections/ilasp.tex) (./tex_sections/performance_comp.tex) [2]
+(./tex_sections/ilasp.tex) (./tex_sections/performance_comp.tex) [2] [3]
 (./Project_Report.aux)
 Package rerunfilecheck Info: File `Project_Report.out' has not changed.
 (rerunfilecheck)             Checksum: 7CA1F7687EB4F6EC71EFCBB7017584F5;799.
 )
 
 Here is how much of LuaTeX's memory you used:
- 35399 strings out of 478531
- 100000,1373583 words of node,token memory allocated
- 515 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 8 attribute, 56 glue_spec,
- 8 attribute_list, 2 write nodes
-   avail lists: 2:246,3:124,4:40,5:207,6:22,7:3791,8:21,9:146,10:15,11:251
- 54249 multiletter control sequences out of 65536+600000
- 48 fonts using 4680759 bytes
- 102i,7n,98p,508b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36832 strings out of 478531
+ 100000,1648299 words of node,token memory allocated
+ 511 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 7 attribute, 56 glue_spec,
+ 7 attribute_list, 2 write nodes
+   avail lists: 2:478,3:185,4:40,5:355,6:36,7:3789,8:39,9:694,10:15,11:251
+ 55622 multiletter control sequences out of 65536+600000
+ 66 fonts using 5797247 bytes
+ 102i,7n,98p,508b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
 <//?/c:/users/salex/appdata/local/programs/miktex/fonts/opentype/public/lm/lmrom
 an12-italic.otf><//?/c:/users/salex/appdata/local/programs/miktex/fonts/opentype
 /public/lm/lmmono12-regular.otf><//?/c:/users/salex/appdata/local/programs/mikte
 x/fonts/opentype/public/lm/lmroman12-bold.otf><//?/c:/users/salex/appdata/local/
 programs/miktex/fonts/opentype/public/lm/lmroman12-regular.otf><//?/c:/users/sal
 ex/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman17-regular.otf>
+<C:/Users/salex/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb><C:/Users/salex/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb>
+Output written on Project_Report.pdf (3 pages, 72200 bytes).
 
-Output written on Project_Report.pdf (2 pages, 51672 bytes).
-
-PDF statistics: 94 PDF objects out of 1000 (max. 8388607)
- 12 named destinations out of 1000 (max. 131072)
+PDF statistics: 120 PDF objects out of 1000 (max. 8388607)
+ 27 named destinations out of 1000 (max. 131072)
  80 words of extra memory for PDF output out of 10000 (max. 100000000)
 
