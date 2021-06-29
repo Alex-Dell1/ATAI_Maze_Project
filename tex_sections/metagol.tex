@@ -1,1 +1,17 @@
 \subsection{Metagol}
+Metagol is a system used for ILP which relies on meta-interpretative learning.\\
+To shortly explain Metagol's learning procedure we will refer to our project, more
+specifically to the file \texttt{Metagol/learn\_to\_walk.pl}, where the agent learns to
+move from one cell to an adjacent, available one.\\
+Metagol starts off by trying to prove one of the examples available, in our case we will
+suppose it would pick the example \texttt{move((2,1),(3,1))}. Since the given background
+knowledge cannot prove this atom and since there are yet no induced clauses, Metagol will
+try to unify the atom with the head of one of the given metarules, which, in this case, are:
+\begin{lstlisting}[language=Prolog, caption=Metarules in \texttt{learning\_to\_walk.pl}]
+metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
+metarule(postcon, [P,Q,R], [P,A,B], [[Q,A,B], [R,B]]).
+metarule(i_postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).  
+\end{lstlisting}
+We will later elaborate on why we are using two different versions of the postcondition metarule.
+Supposing Metalog chose \texttt{i\_postcon} this would result in a substitution of its head
+with the atom:

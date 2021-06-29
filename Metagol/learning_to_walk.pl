@@ -3,8 +3,9 @@
 metagol:max_clauses(5).
 
 %%% METARULES %%%
-metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
-metarule(postcon, [P,Q,R], [P,A,B], [[Q,A,B], [R,B]]).
+metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]). % Identity
+metarule(postcon, [P,Q,R], [P,A,B], [[Q,A,B], [R,B]]). % Postcondition
+metarule(i_postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]). % Inverted postcondition
 
 %%% BACKGROUND KNOWLEDGE %%%
 width(5).
@@ -73,9 +74,7 @@ body_pred(legal_position/1).
 learn_to_walk :-
     Pos = [
         move((2,1), (3,1)),
-        move((3,3), (4,3)),
         move((4,2), (4,3)),
-        move((5,3), (5,4)),
         move((3,1), (2,1)),
         move((4,3), (4,2))
     ],
@@ -88,3 +87,5 @@ learn_to_walk :-
     ],
 
     learn(Pos, Neg).
+
+%:- time(learn_to_walk).
