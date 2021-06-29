@@ -43,8 +43,6 @@ reach(C3,C2) :- arc(C1,C2), reach(C3,C1).
 #modeb(1, move(var(row), var(col))).
 #modeb(1, obstacle(var(row), var(col))).
 
-%#minhl(0).
-%#maxhl(10).
 #maxv(4).
 #disallow_multiple_head_variables.
 #max_penalty(40).
