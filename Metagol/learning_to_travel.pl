@@ -1,11 +1,16 @@
+/*
+    This program learns the reach/2 predicate. Which given two cells A, B in the Maze
+    checks whether, B is reachable from A.
+*/
+
 :- use_module('metagol.pl').
 
-metagol:max_clauses(2).
+metagol:max_clauses(4).
 
 %%% METARULES %%%
-metarule(chain, [P,Q], [P,A,B], [[Q,A,C], [P,C,B]]).
+metarule(recursion, [P,Q], [P,A,B], [[Q,A,C], [P,C,B]]).
 metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
-metarule(postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
+%metarule(postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
 
 %%% BACKGROUND KNOWLEDGE %%%
 width(5).
