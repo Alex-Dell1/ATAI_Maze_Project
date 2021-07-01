@@ -1,6 +1,11 @@
+/*
+    This program is used to learn the predicate move/2. It assumes that
+    it is already known how to check whether a cell belongs to a grid.
+*/
+
 :- use_module('metagol.pl').
 
-metagol:max_clauses(5).
+metagol:max_clauses(4).
 
 %%% METARULES %%%
 metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]). % Identity
@@ -88,4 +93,4 @@ learn_to_walk :-
 
     learn(Pos, Neg).
 
-%:- time(learn_to_walk).
+:- time(learn_to_walk).
