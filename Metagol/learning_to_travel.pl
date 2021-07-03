@@ -10,7 +10,6 @@ metagol:max_clauses(4).
 %%% METARULES %%%
 metarule(recursion, [P,Q], [P,A,B], [[Q,A,C], [P,C,B]]).
 metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
-%metarule(postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
 
 %%% BACKGROUND KNOWLEDGE %%%
 width(5).
@@ -91,7 +90,7 @@ body_pred(move/2).
 
 learn_to_travel :-
     Pos = [
-        reach((1,1), (2,1)),
+        %reach((1,1), (2,1)),
         reach((1,1), (2,5))
     ],
 

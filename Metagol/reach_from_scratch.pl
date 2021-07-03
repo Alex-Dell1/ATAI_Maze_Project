@@ -1,16 +1,12 @@
-/*
-    This program is used to learn the predicate move/2. It assumes that
-    it is already known how to check whether a cell belongs to a grid.
-*/
-
 :- use_module('metagol.pl').
 
-metagol:max_clauses(5).
+metagol:max_clauses(7).
 
 %%% METARULES %%%
-metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]). % Identity
-metarule(postcon, [P,Q,R], [P,A,B], [[Q,A,B], [R,B]]). % Postcondition
-%metarule(i_postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]). % Inverted postcondition
+
+metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
+metarule(prepostcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
+metarule(recursion, [P,Q,R], [P,A,B], [[R,B], [Q,A,C], [R,C], [P,C,B]]).
 
 %%% BACKGROUND KNOWLEDGE %%%
 width(5).
@@ -39,6 +35,13 @@ in_range((X, Y)) :-
     Y > 0, 
     Y =< MaxHeight.
 
+is_free(A) :-
+    \+ obstacle(A).
+
+legal_position(A) :-
+    in_range(A),
+    is_free(A).
+
 inc_x((X, Y), (X1, Y)) :-
     integer(X),
     (ground(X1) -> integer(X1); true),
@@ -55,42 +58,40 @@ inc_y((X, Y), (X, Y1)) :-
     succ(Y, Y1).
 
 dec_y((X, Y), (X, Y1)) :-
+    %(ground(X) -> integer(X); true),
     integer(Y),
     (ground(Y1) -> integer(Y1); true),
     succ(Y1, Y).
 
-is_free((X, Y)) :-
-    \+ obstacle((X, Y)).
-
-% A position is legal if it's in bounds and does not have an obstacle.
-legal_position((X, Y)) :-
-    in_range((X, Y)),
-    is_free((X, Y)).
-
 %%% Here Prolog, this is what you should know. %%%
-body_pred(inc_x/2).
+body_pred(dec_y/2).
 body_pred(dec_x/2).
 body_pred(inc_y/2).
-body_pred(dec_y/2).
+body_pred(inc_x/2).
 body_pred(legal_position/1).
 
-%%% EXAMPLES %%%
+reach(A,B):-legal_position(B),inc_x(A,B).
+reach(A,B):-in_range(B),dec_y(A,B).
+reach(A,B):-legal_position(B),inc_y(A,C),legal_position(C),reach(C,B).
+reach(A,B):-dec_x(A,B).
 
-learn_to_walk :-
+rfs :-
     Pos = [
-        move((2,1), (3,1)),
-        move((4,2), (4,3)),
-        move((3,1), (2,1)),
-        move((4,3), (4,2))
+        reach((1,1), (2,1)),
+        reach((4,4), (4,3)),
+        reach((5,2), (5,3)),
+        reach((5,5), (4,5)),
+        reach((3,1), (4,2)),
+        reach((3,1), (4,5))
     ],
-
-    Neg = [
-        move((4,1), (5,1)),
-        move((3,3), (3,4)),
-        move((1,1), (0,1)),
-        move((5,2), (5,1))
+	Neg = [
+        reach((1,1); (1,1)),
+        reach((5,1), (6,1)),
+        reach((1,1), (1,0)),
+        reach((5,5), (5,6)),
+        reach((1,1), (1,2)),
+        reach((4,1), (5,1)),
+        reach((4,2), (3,2)),
+        reach((5,2), (5,1))
     ],
-
     learn(Pos, Neg).
-
-%:- time(learn_to_walk).
