@@ -1,11 +1,16 @@
+/*
+    This program learns the reach/3 predicate. Which given two cells A, B in the Maze
+    checks whether, B is reachable from A. It also stores the path in a list.
+*/
+
 :- use_module('metagol.pl').
 
-%metagol:max_clauses(2).
+metagol:max_clauses(4).
 
 %%% METARULES %%%
+metarule(recursion, [P,Q], [P,A,B,[A|L1]], [[Q,A,C], [P,C,B,L1]]).
 metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
-metarule(chain, [P,Q], [P,A,B], [[Q,A,C], [P,C,B]]).
-metarule(postcon, [P,Q,R], [P,A,B], [[Q,A,B], [R,B]]).
+metarule(ident2, [P,Q], [P,A,B,[A,B]], [[Q,A,B]]).
 
 %%% BACKGROUND KNOWLEDGE %%%
 width(5).
@@ -21,8 +26,8 @@ obstacle((1,4)).
 obstacle((1,5)).
 obstacle((5,1)).
 
-start((1,1)).
-goal((2,5)).
+start(1,1).
+goal(2,5).
 
 % Check whether two coordinates are in bounds.
 in_range((X, Y)) :-
@@ -79,20 +84,18 @@ move_1(A,B):-
 move_1(A,B):-
     dec_y(A,B).
 
-% BK previously learned from 'learning_to_travel.pl'.
-reach(A,B):-
-    move(A,B).
-reach(A,B):-
-    move(A,C),
-    reach(C,B).
-
 %%% Here Prolog, this is what you should know. %%%
 body_pred(move/2).
 
-learn_to_win :-
+%%% EXAMPLES %%%
 
+lttm :-
     Pos = [
-        path((1,1), (2,5))
+        reach((1,1), (2,1), [(1,1), (2,1)]),
+        reach((1,1), (5,5), [(1,1), (2,1), (3,1), (4,1), (4,2), (5,2), (5,3), (5,4), (5,5)])
     ],
 
-    learn(Pos, []).
+    Neg = [
+    ],
+
+    learn(Pos, Neg).

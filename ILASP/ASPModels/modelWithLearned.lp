@@ -16,10 +16,13 @@ obstacle(5,1).
 
 start(1,1).
 goal(5,5).
+
+%for each position define cell pred.
 cell(X,Y) :- row(X), col(Y).
 
 %FIND A PATH FROM START
 move(0,0,X,Y) :- start(X,Y).
+%for each "move" find another linked to it that is a legit move!
 1{move(X,Y,X1,Y1): nextLegit((X,Y), (X1,Y1))}1:- move(_,_, X,Y), not goal(X,Y).
 
 succ(0,1).

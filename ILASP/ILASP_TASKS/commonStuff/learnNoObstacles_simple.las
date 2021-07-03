@@ -1,4 +1,4 @@
-%MODEL THAT SHOULD LEARN NOT MOVING INTO OBSTACLES...QUITE INEFFICIENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%learn how to move on cells without obstacles
 row(1..5).
 col(1..5).
 
@@ -23,10 +23,6 @@ cell(X,Y) :- row(X), col(Y).
 
 succ(0,1).
 succ(X, X+1) :- cell(X,_).
-%succ(X,Y) :- succ(Y,X).
-
-%move(0,0,X,Y) :- start(X,Y).
-%1{move(X,Y,X1,Y1): next((X,Y), (X1,Y1))}1:- move(_,_, X,Y), not goal(X,Y).
 
 %PATHS ADJACENTS (learned from previous ilasp task)
 next((V1,V2),(V3,V2)) :- cell(V1,V2), cell(V3,V2), succ(V3,V1).
@@ -35,8 +31,7 @@ next((V1,V2),(V1,V3)) :- cell(V1,V2), cell(V1,V3), succ(V3,V2).
 next((V1,V2),(V1,V3)) :- cell(V1,V2), cell(V1,V3), succ(V2,V3).
 
 
-%nextLegit((V1,V2),(V3,V2)):- next((V1,V2),(V3,V2)), not obstacle(V3,V2)). <- LEARN THIS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%SEARCH_SPACE + EXAMPLES%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%SEARCH_SPACE + EXAMPLES
 
 #pos(po, {nextLegit((1,1),(2,1))}, {}).
 #pos(po2, {nextLegit((4,1),(4,2))}, {}).

@@ -2,15 +2,10 @@
 row(1..5).
 col(1..5).
 
-start(1,1).
-
 cell(X,Y) :- row(X), col(Y).
 
 succ(0,1).
 succ(X, X+1) :- cell(X,_).
-
-% for shorter rules: succ means close
-% succ(X,Y) :- succ(Y,X).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%SEARCH_SPACE + EXAMPLES%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #pos(p1, {next((4,2), (4,1)), next((4,2), (4,3)), next((4,2), (3,2)), next((4,2), (5,2))}, {}).

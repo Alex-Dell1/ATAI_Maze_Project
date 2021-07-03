@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Outline}{}% 1
+\BOOKMARK [1][-]{section.2}{Introduction}{}% 2
+\BOOKMARK [1][-]{section.3}{Background}{}% 3
+\BOOKMARK [1][-]{section.4}{Implementation}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{HYPER}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Metagol}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{ILASP}{section.4}% 7
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Learning normal rules - learning how to walk}{subsection.4.3}% 8
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Learning to walk on adjacent cells}{subsection.4.3}% 9
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Learning to walk on cells without obstacles}{subsection.4.3}% 10
+\BOOKMARK [3][-]{subsubsection.4.3.4}{using this rules to define an ASP model}{subsection.4.3}% 11
+\BOOKMARK [3][-]{subsubsection.4.3.5}{performance test}{subsection.4.3}% 12
+\BOOKMARK [1][-]{section.5}{Performance comparison}{}% 13

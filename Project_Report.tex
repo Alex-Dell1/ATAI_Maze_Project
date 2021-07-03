@@ -6,10 +6,115 @@
 \usepackage{amsmath}
 \usepackage{wrapfig}
 \usepackage{listings}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage{color}
+
 
 \lstdefinestyle{mystyle}{                 
     captionpos=b}
 \lstset{style=mystyle}
+
+\makeatletter
+\newcommand\BeraMonottfamily{%
+	\def\fvm@Scale{0.85}% scales the font down
+	\fontfamily{fvm}\selectfont% selects the Bera Mono font
+}
+
+\makeatother
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{maroon}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{ForestGreen}{RGB}{34,106,46}
+\definecolor{lightgray}{rgb}{0.97, 0.97, 0.97}
+
+\lstdefinelanguage{minizinc}{
+	morekeywords={
+		%% MiniZinc keywords
+		%%
+		ann, annotation, any, array, assert,
+		bool,
+		constraint,
+		else, elseif, endif, enum, exists,
+		float, forall, function,
+		if, in, include, int,
+		list,
+		minimize, maximize,
+		of, op, output,
+		par, predicate,
+		record,
+		set, solve, string,
+		test, then, tuple, type,
+		var,
+		where,
+		%% MiniZinc functions
+		%%
+		abort, abs, acosh, array_intersect, array_union,
+		array1d, array2d, array3d, array4d, array5d, array6d, asin, assert, atan,
+		bool2int,
+		card, ceil, combinator, concat, cos, cosh,
+		dom, dom_array, dom_size, dominance,
+		exp,
+		fix, floor,
+		index_set, index_set_1of2, index_set_2of2, index_set_1of3, index_set_2of3, index_set_3of3,
+		int2float, is_fixed,
+		join,
+		lb, lb_array, length, let, ln, log, log2, log10,
+		min, max,
+		pow, product,
+		round,
+		set2array, show, show_int, show_float, sin, sinh, sqrt, sum,
+		tan, tanh, trace,
+		ub, and ub_array,
+		%% Search keywords
+		%%
+		bool_search, int_search, seq_search, priority_search,
+		%% MiniSearch keywords
+		%%
+		minisearch, search, while, repeat, next, commit, print, post, sol, scope, time_limit, break, fail
+	},
+	sensitive=true, % are the keywords case sensitive
+	morecomment=[l][\em\color{ForestGreen}]{\%},
+	%morecomment=[s]{/*}{*/},
+	morestring=[b]",
+}
+
+\lstset{ %
+	backgroundcolor=\color{lightgray},  % choose the background color; you must add
+	% \usepackage{color} or \usepackage{xcolor}
+	basicstyle=\scriptsize\ttfamily,    % the size of the fonts that are used for the code
+	belowskip=-2em,
+	breakatwhitespace=false,            % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                    % sets automatic line breaking
+	captionpos=b,                       % sets the caption-position to bottom
+	commentstyle=\color{ForestGreen},   % comment style
+	%deletekeywords={...},              % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},             % if you want to add LaTeX within your code
+	extendedchars=true,                 % lets you use non-ASCII characters; for 8-bits
+	% encodings only, does not work with UTF-8
+	frame=single,                       % adds a frame around the code
+	keepspaces=true,                    % keeps spaces in text, useful for keeping indentation
+	% of code (possibly needs columns=flexible)
+	keywordstyle=\bfseries\color{blue}, % keyword style
+	language=minizinc,                  % the language of the code
+	%morekeywords={*,...},              % if you want to add more keywords to the set
+	numbers=left,                       % where to put the line-numbers; possible values are (none, left, right)
+	%numbersep=5pt,                     % how far the line-numbers are from the code
+	%numberstyle=\tiny\color{Gray},     % the style that is used for the line-numbers
+	rulecolor=\color{black},            % if not set, the frame-color may be changed
+	% on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                   % show spaces everywhere adding particular
+	% underscores; it overrides 'showstringspaces'
+	showstringspaces=false,             % underline spaces within strings only
+	showtabs=false,                     % show tabs within strings adding particular underscores
+	%stepnumber=1,                      % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{Red},            % string literal style
+	tabsize=1,                          % sets default tabsize to 2 spaces
+	title=\lstname                      % show the filename of files included with \lstinputlisting;
+	% also try caption instead of title
+}
 
 \hypersetup{
     colorlinks=true,
