@@ -4,11 +4,13 @@ ILASP enables learning programs containing normal rules, choice rules and both h
 
 \subsubsection{Learning normal rules - learning how to walk}
 
-The first task is learning to walk on the maze, considering adjacent cells and the obstacles (walls and co.). This task have been split for complexity reasons, as a result first it will be learned how to move on near cells and then obstacles will be considered, in 2 different ILASP scripts. Here some normal rules will be learned, in the next sections other kind of rules will be covered (regarding the same problem).
+The first task is learning to walk on the maze, considering adjacent cells and the obstacles (walls and co.). This task have been split for complexity reasons, as a result first it will be learned how to move on near cells and then obstacles will be considered, in 2 different ILASP scripts. Here some normal rules will be learned, other kind of rules have been learned on other scripts but regarding another type of ASP model. 
+
+Note: the rules learned here correspond to the predicate "move" learned by my companions.
 
 \subsubsection{Learning to walk on adjacent cells}
 
-this is the ilasp code written for the pourpose, with some bit of background knowledge, definition of search space with language bias and some examples with all different "cases".  Finding those examples has been pretty difficult because they must be meaningful and as such must capture all the different contexts.
+this is the ilasp code written for the pourpose, with some bit of background knowledge, definition of search space with language bias and some examples with all the different "cases".  Finding those examples has been pretty difficult because they must be "meaningful" and as such must capture all the different contexts.
 
 \newpage
 \begin{lstlisting}[language=Prolog]
@@ -49,6 +51,8 @@ succ(X, X+1) :- cell(X,_).
 
 #maxv(3).
 \end{lstlisting}
+
+In the language bias definition I used the "positive" and "anti-reflexive" options to reduce the search-space and found earlier the result. This options could be avoided.
 At \ref{fig:asd} the output of the script, with the learned rules, ILASP actually learned that "next" predicate is true for adjacent cells, based on that the movement on the grid will be possible.
 
 \begin{figure}
@@ -177,17 +181,26 @@ having this rules in hand now is possible to define a model that solves our prob
 
 at \ref{fig:asd3} the execution of "clingo" command on this model is shown: the path is represented by the chaning "move" predicate.
 
-\subsubsection{performance test}
-The work done with ilasp shows clearly this fact: the time complexity doesn't scale well with respect to the search space dimension. In fact, when trying to learn the "move to adjacent cells AND without obstacles" (the 2 tasks on the same scrit) compexity costs exploded "simply" for the insertion of the predicate "obstacle". (for a total of ... predicates in the search space). it is quite evident that a sort of exponential trend is in place and here I will like to do a specific test to demonstrate this.
-
-
-
-
 \newpage
 \begin{figure}
 	\includegraphics[scale=0.45]{img/outputModel.png}
 	\caption{Path found on the grid}\label{fig:asd3}
 \end{figure}
+
+\subsubsection{performance test - scalability}
+The work done with ilasp shows clearly this fact: the time complexity doesn't scale well with respect to the search space dimension. In fact, when trying to learn the "move to adjacent cells AND without obstacles" (the 2 tasks on the same scrit) compexity costs exploded "simply" for the insertion of the predicate "obstacle". (for a total of 6 predicates in the search space). it is quite evident that a sort of exponential trend is in place and here I will like to do a specific test to demonstrate this.
+
+Using the "learn to walk on adjacent cells" ilasp script I tried to augment the search space and see time needed for computation, the augmenting has been done insertig other predicates in language bias, modyfing language bias to insert more "usage" of the same predicate, eliminating the "positive" and "anti-reflexing" options on language bias. After that, an analysis on computation time vs search space dimension (measured as the size of rules in the search space) has been conducted, at \ref{fig:asd4} the graphical results, the blue points are the instantes of the benchmarks. Interestingly other tests conducted with a searh space > 200 lead to 
+
+The grow shows an evident simil-exponential trend, especially the steep from the "57 seconds" point to the "200" one.
+\newpage
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.7]{img/GraphTimes.png}
+	\caption{performance test result}\label{fig:asd4}
+\end{figure}
+
 
 
 \newpage
