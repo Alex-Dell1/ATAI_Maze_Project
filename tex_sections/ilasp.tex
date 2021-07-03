@@ -141,8 +141,6 @@ having this rules in hand now is possible to define a model that solves our prob
 	obstacle(1,2).
 	obstacle(2,2).
 	obstacle(3,2).
-	obstacle(3,3).
-	obstacle(4,3).
 	obstacle(4,4).
 	obstacle(3,4).
 	obstacle(2,4).
@@ -151,7 +149,7 @@ having this rules in hand now is possible to define a model that solves our prob
 	obstacle(5,1).
 	
 	start(1,1).
-	goal(5,5).
+	goal(2,5).
 	
 	%for each position define cell pred.
 	cell(X,Y) :- row(X), col(Y).
@@ -184,7 +182,7 @@ at \ref{fig:asd3} the execution of "clingo" command on this model is shown: the 
 
 \newpage
 \begin{figure}
-	\includegraphics[scale=0.45]{img/outputModel.png}
+	\includegraphics[scale=0.35]{img/outputModel_newMaze.png}
 	\caption{Path found on the grid}\label{fig:asd3}
 \end{figure}
 
