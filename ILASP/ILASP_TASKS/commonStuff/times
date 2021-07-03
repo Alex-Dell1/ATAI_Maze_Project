@@ -1,0 +1,10 @@
+times for learnMove_benchmark
+searcSpaceDim -> times
+
+33 -> 4.592 s
+39 -> 5.032 s
+44 -> 5.187 s
+53 -> 6.76 s
+104 -> 16.29s
+173 -> 57 s
+189 -> (> 2 mins)
