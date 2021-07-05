@@ -1,11 +1,13 @@
 :- use_module('metagol.pl').
 
-metagol:max_clauses(7).
+metagol:max_clauses(15).
 
+metarule(start, [P,Q], [P,A,B,L], [[Q,A,B,[A],L]]).
+metarule(rec2, [P,Q,R,S], [P,A,B,Acc,L], [[R,B], [Q,A,C], [R,C], [S,C,Acc], [P,C,B,[C|Acc],L]]).
 metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
+metarule(prepostcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
 metarule(ident2, [P,Q], [P,A,B,[A,B]], [[Q,A,B]]).
-metarule(postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
-metarule(recursion, [P,Q,R], [P,A,B,[A|L1]], [[R,B], [Q,A,C], [R,C], [P,C,B,L1]]).
+metarule(xd, [P,A,A,L,L], [[true]]).
 
 %%% BACKGROUND KNOWLEDGE %%%
 width(5).
@@ -62,12 +64,16 @@ dec_y((X, Y), (X, Y1)) :-
     (ground(Y1) -> integer(Y1); true),
     succ(Y1, Y).
 
+non_member(X,L) :-
+    \+ member(X,L).
+
 %%% Here Prolog, this is what you should know. %%%
 body_pred(dec_y/2).
 body_pred(dec_x/2).
 body_pred(inc_y/2).
 body_pred(inc_x/2).
 body_pred(legal_position/1).
+body_pred(non_member/2).
 
 reach(A,B):-legal_position(B),inc_x(A,B).
 reach(A,B):-in_range(B),dec_y(A,B).

@@ -15,3 +15,11 @@ metarule(i_postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
 We will later elaborate on why we are using two different versions of the postcondition metarule.
 Supposing Metalog chose \texttt{i\_postcon} this would result in a substitution of its head
 with the atom:
+
+\subsubsection{\texttt{learning\_to\_walk.pl}}
+The first task to be faced consists into learning how to move from one cell to another adjacent, legal
+one. Differently from the other two implementations, here the \texttt{adjacent/2} predicate is learned
+indirectly through \emph{predicate invention}.\\
+In this case, the system is assumed to know what a legal cell is and, given a pair of coordinates, how
+to increment/decrease a single coordinate.
+\[\]
