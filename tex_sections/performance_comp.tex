@@ -1,2 +1,17 @@
-
 \section{Performance comparison}\label{sec:perf}
+
+
+{\rowcolors{2}{gray!50!}{}
+\begin{center}
+    \begin{tabular}{ |l|c|c|c| } 
+        \hline
+        Task & \textbf{HYPER} & \textbf{Metagol} & \textbf{ILASP} \\ \hline
+        \texttt{adjacent/2} & 175.884 & 0.056 & 4.767 \\ 
+        \texttt{move/2} & 0.063 & 0.047 & 5.343 \\ 
+        \texttt{move/2} (\(7*7\) grid) & INSERT & 0.054 & INSERT \\ 
+        \texttt{reach/3} & 1.577 & 0.027 & NA \\ 
+        \texttt{move/2} and \texttt{reach/3} & 16.585 & 0.848 & NA \\ 
+        \hline
+    \end{tabular}
+\end{center}
+}
