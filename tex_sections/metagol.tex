@@ -9,7 +9,7 @@ one. Differently from the other two implementations, here the \texttt{adjacent/2
 indirectly through \emph{predicate invention}.\\
 In this case, the system is assumed to know what a legal cell is and, given a pair of coordinates, how
 to increment/decrease the value of a single coordinate.
-\begin{lstlisting}[language=Prolog, caption=Background Knowledge to walk, belowcaptionskip=1cm]
+\begin{lstlisting}[label={lst:bk_ltw}, language=Prolog, caption=Background Knowledge to walk, belowcaptionskip=1cm]
 body_pred(inc_x/2).
 body_pred(dec_x/2).
 body_pred(inc_y/2).
@@ -35,14 +35,14 @@ Focussing on \texttt{postcon} and \texttt{i\_postcon}, it is possible to notice 
 the same clause shape, just with two inverted atoms in the body. The results, though, will show how much difference
 using one metarule or another can make.
 
-\begin{lstlisting}[label={lst:postres},language=Prolog, caption=\texttt{postcon} result, belowcaptionskip=1cm]
+\begin{lstlisting}[label={lst:postres},language=Prolog, caption=Result of \texttt{postcon}, belowcaptionskip=1cm]
 move(A,B):-inc_x(A,B),legal_position(B).
 move(A,B):-inc_y(A,B),legal_position(B).
 move(A,B):-dec_x(A,B),legal_position(B).
 move(A,B):-dec_y(A,B),legal_position(B).
 \end{lstlisting}
 
-\begin{lstlisting}[language=Prolog, caption=\texttt{i\_postcon} result, belowcaptionskip=1cm]
+\begin{lstlisting}[language=Prolog, caption=Result of \texttt{i\_postcon}, belowcaptionskip=1cm]
 move(A,B):-legal_position(B),move_1(A,B).
 move_1(A,B):-inc_x(A,B).
 move_1(A,B):-inc_y(A,B).
@@ -57,9 +57,9 @@ Before diving into the timing analysis for these two cases, a third one deserves
 is replaced by the two conjuncts that defined it, namely \texttt{is\_free/1} (which checks whether a position is not an obstacle) and
 \texttt{in\_range/1} (which checks if a position is in bounds).
 In order to work on this task, a new metarule is introduced: \texttt{metarule([[P,Q,R,S],[P,A,B],[[Q,A,B],[R,B],[S,B]]).])}. This metarule,
-to which we will refer to as \emph{double postcondition} shapes the resulting clause with two different postconditions.\\
+to which we will refer to as \emph{double postcondition} (\texttt{double\_postcon}) shapes the resulting clause with two different postconditions.\\
 The result is quite intuitive:
-\begin{lstlisting}[language=Prolog, caption=\emph{Double postcondition} result, belowcaptionskip=1cm]
+\begin{lstlisting}[language=Prolog, caption=Result of \texttt{double\_postcon} result, belowcaptionskip=1cm]
 move(A,B):-inc_x(A,B),in_range(B),is_free(B).
 move(A,B):-inc_y(A,B),in_range(B),is_free(B).
 move(A,B):-dec_x(A,B),in_range(B),in_range(B).
@@ -68,7 +68,6 @@ move(A,B):-dec_y(A,B),in_range(B),is_free(B).
 
 Finally, Table~\ref{tab:walk_res} offers an overview of the timings of these three slightly different implementations. These results highlight the impact that
 one more clause or just a slightly increased clause length can have on time performance. Concluding, Metagol is affected by a trade-off between expressiveness and performance.
-.
 {\rowcolors{2}{gray!50!}{}
 \begin{center}
     \begin{table}[h]
@@ -84,7 +83,7 @@ one more clause or just a slightly increased clause length can have on time perf
 \end{center}
 }
 
-\subsubsection{\texttt{learning\_to\_travel\_with\_memory.pl}}
+\subsubsection{\texttt{learning\_to\_travel\_with\_memory.pl}}\label{sec:lttm}
 This program's task is to learn the predicate \texttt{reach(A,B,L)}, where \texttt{A} and \texttt{B} are cells and
 \texttt{L} is a list containing the path from \texttt{A} to \texttt{B}.\\
 In this case, the background knowledge already includes the predicate \texttt{move/2} previously learned with \texttt{learning\_to\_walk.pl}.
@@ -98,5 +97,69 @@ Focussing on the \texttt{recursion} metarule in Listing~\ref{lst:metaltm}, its r
 in the head (\texttt{P}). It is fair to mention that no elaborated technique was used in order to understand which metarule would fit best for the given task. This metarule
 was simply chosen because it represented the rule shape we would have used to \emph{"manually"} define \texttt{reach/3}.\\
 
-Touching on the examples being used, only one positive example was needed. No negative examples were used.
+One interesting thing about this implementation is about the number of examples being used: one positive example and no negative ones. This is because of how small
+the search space is. Having the background knowledge only including \texttt{move/2} means already getting rid of any hypothesis of the predicate \texttt{reach/3} that
+would allow illegal moves. To phrase it in a simpler way, an \emph{agent} that only knows how to move legally will not be able to make sequences of moves including
+illegal ones.\\
+Plus, not only is the search space quite small, the \emph{language bias} is also very restrictive: consider Metagol trying to prove the example \texttt{reach((1,1), (3,1), [(1,1), (2,1), (3,1)])}.
+The only valid metarule to which unify this example is \texttt{recursion}.\\
+Follows the result obtained from the implementation:
+\begin{lstlisting}[language=Prolog, caption=Result of \texttt{learning\_to\_travel\_with\_memory.pl}, belowcaptionskip=1cm]
+reach(A,B,[A,B]):-move(A,B).
+reach(A,B,[A|C]):-move(A,D),reach(D,B,C).
+\end{lstlisting}
+
+
+\subsubsection{\texttt{reach\_from\_scratch\_memory.pl}}
+This program's task is analogous to the one of the program illustrated at Section~\ref{sec:lttm}. This time, though, the
+background knowledge is the same as for \texttt{learning\_to\_walk.pl}, shown in Listing~\ref{lst:bk_ltw}.\\
+As a result of this, the system will have to deal with a large search space, this means that, at last, the spotlights points
+onto the examples.\\
+Given that the system now does not initially know how to \texttt{move/2}, the positive examples will have to include a successful
+\emph{walk} from a legal cell to another adjacent one for each of the four directions. Last, only an example of one successful path
+between two distant cells is needed. It is important for this path to contain moves in all four directions.
+The negative examples are the same as it was for the first implementation described in Section~\ref{sec:lttm}: one illegal move for each
+direction. The examples can be visualized more clearly in Listing~\ref{lst:ex_rfsm}.
+\begin{lstlisting}[label={lst:ex_rfsm},language=Prolog, caption=Examples in \texttt{reach\_from\_scratch\_memory.pl}, belowcaptionskip=1cm]
+Pos = [
+    reach((1,1), (2,1), [(1,1), (2,1)]),
+    reach((4,4), (4,3), [(4,4), (4,3)]),
+    reach((5,2), (5,3), [(5,2), (5,3)]),
+    reach((5,5), (4,5), [(5,5), (4,5)]),
+    reach((3,1), (4,5), [(3,1), (4,1), (4,2), (4,3), (5,3), (5,4), (5,5), (4,5)])
+],
+Neg = [
+    reach((5,1), (6,1), [(5,1), (6,1)]),
+    reach((1,1), (1,0), [(1,1), (1,0)]),
+    reach((5,5), (5,6), [(5,5), (5,6)]),
+    reach((1,1), (0,1), [(1,1), (0,1)])
+]
+\end{lstlisting}
+Surprisingly enough, no examples of paths containing incoherent moves were needed.
+But as previously mentioned, this should be justifiable by the restricting language bias.
+Following, the metarules (Listing~\ref{lst:mr_rfsm}) and the result of the implementation (Listing~\ref{lst:res_rfsm}).
+\begin{lstlisting}[label={lst:mr_rfsm},language=Prolog, caption=Metarules in \texttt{reach\_from\_scratch\_memory.pl}, belowcaptionskip=1cm]
+metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
+metarule(ident2, [P,Q], [P,A,B,[A,B]], [[Q,A,B]]).
+metarule(postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).
+metarule(recursion, [P,Q,R], [P,A,B,[A|L1]], [[R,B], [Q,A,C], [R,C], [P,C,B,L1]]).
+\end{lstlisting}
+\begin{lstlisting}[label={lst:res_rfsm},language=Prolog, caption=Result of \texttt{reach\_from\_scratch\_memory.pl}, belowcaptionskip=1cm]
+reach(A,B,[A,B]):-reach_1(A,B).
+reach_1(A,B):-legal_position(B),reach_2(A,B).
+reach_2(A,B):-inc_x(A,B).
+reach_2(A,B):-dec_y(A,B).
+reach_2(A,B):-inc_y(A,B).
+reach_2(A,B):-dec_x(A,B).
+reach(A,B,[A|C]):-legal_position(B),reach_2(A,D),legal_position(D),reach(D,B,C).
+\end{lstlisting}
+On a last note, the metarule \texttt{recursion} in this case needed to be added a post-condition (on cell \texttt{B}) and a \emph{middle-condition}
+(on cell \texttt{C}). It was quite hard to figure out why, but removing one of these atoms would lead to an endless execution of the program at a
+number of clauses equal to 2.
+
+\subsubsection{Other tasks}
+\begin{itemize}
+    \item \texttt{learn\_to\_win.pl}. Analogously to Cropper's example \texttt{robot.pl}, this program is able to offer the solution of the given Maze problem.
+    \item \texttt{tail\_lttm.pl} (not working). This program has the same goal as the one described in Section~\ref{sec:lttm}, this time though the objective is to learn \texttt{reach/3} with tail recursion. The reason why this work was deemed relevant is offered at Section~\ref{sec:perf}.
+\end{itemize}
 \newpage
