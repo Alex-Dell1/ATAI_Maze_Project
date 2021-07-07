@@ -1,25 +1,102 @@
 \subsection{Metagol}
-Metagol is a system used for ILP which relies on meta-interpretative learning.\\
-To shortly explain Metagol's learning procedure we will refer to our project, more
-specifically to the file \texttt{Metagol/learn\_to\_walk.pl}, where the agent learns to
-move from one cell to an adjacent, available one.\\
-Metagol starts off by trying to prove one of the examples available, in our case we will
-suppose it would pick the example \texttt{move((2,1),(3,1))}. Since the given background
-knowledge cannot prove this atom and since there are yet no induced clauses, Metagol will
-try to unify the atom with the head of one of the given metarules, which, in this case, are:
-\begin{lstlisting}[language=Prolog, caption=Metarules in \texttt{learning\_to\_walk.pl}]
-metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
-metarule(postcon, [P,Q,R], [P,A,B], [[Q,A,B], [R,B]]).
-metarule(i_postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]).  
-\end{lstlisting}
-We will later elaborate on why we are using two different versions of the postcondition metarule.
-Supposing Metalog chose \texttt{i\_postcon} this would result in a substitution of its head
-with the atom:
+The scripts discussed in this section of the report can be found in the \texttt{Metagol} folder.\\
+
 
 \subsubsection{\texttt{learning\_to\_walk.pl}}
-The first task to be faced consists into learning how to move from one cell to another adjacent, legal
+Since learning the predicate \texttt{adjacent/2} was quite trivial, the first task to be learned
+consists moving from one cell to another adjacent, legal
 one. Differently from the other two implementations, here the \texttt{adjacent/2} predicate is learned
 indirectly through \emph{predicate invention}.\\
 In this case, the system is assumed to know what a legal cell is and, given a pair of coordinates, how
-to increment/decrease a single coordinate.
-\[\]
+to increment/decrease the value of a single coordinate.
+\begin{lstlisting}[language=Prolog, caption=Background Knowledge to walk, belowcaptionskip=1cm]
+body_pred(inc_x/2).
+body_pred(dec_x/2).
+body_pred(inc_y/2).
+body_pred(dec_y/2).
+body_pred(legal_position/1).   
+\end{lstlisting}
+The positive and negative examples used in this program are quite straightforward to illustrate. A positive example
+is needed for each possible direction (up, down, left, right). Having the predicate \texttt{legal\_position/1} as part 
+of the background knowledge further simplifies the task of defining the negative examples, as we only need four of them:
+one illegal move for each direction. This is possible because \texttt{legal\_position/1} is false whatever kind of illegal
+position it is considering (out of bounds or obstacle).\\
+
+
+The spotlight of this task is on metarules. Metarules define the search space and, therefore, they also have
+a huge impact on both performance and the way the solution is presented. In this case the metarules used are
+the following:
+\begin{lstlisting}[language=Prolog, caption=Metarules in \texttt{learning\_to\_walk.pl}, belowcaptionskip=1cm]
+metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]). % Identity
+metarule(postcon, [P,Q,R], [P,A,B], [[Q,A,B], [R,B]]). % Postcondition
+metarule(i_postcon, [P,Q,R], [P,A,B], [[R,B], [Q,A,B]]). % Inverted postcondition  
+\end{lstlisting}
+Focussing on \texttt{postcon} and \texttt{i\_postcon}, it is possible to notice how they are basically defining
+the same clause shape, just with two inverted atoms in the body. The results, though, will show how much difference
+using one metarule or another can make.
+
+\begin{lstlisting}[label={lst:postres},language=Prolog, caption=\texttt{postcon} result, belowcaptionskip=1cm]
+move(A,B):-inc_x(A,B),legal_position(B).
+move(A,B):-inc_y(A,B),legal_position(B).
+move(A,B):-dec_x(A,B),legal_position(B).
+move(A,B):-dec_y(A,B),legal_position(B).
+\end{lstlisting}
+
+\begin{lstlisting}[language=Prolog, caption=\texttt{i\_postcon} result, belowcaptionskip=1cm]
+move(A,B):-legal_position(B),move_1(A,B).
+move_1(A,B):-inc_x(A,B).
+move_1(A,B):-inc_y(A,B).
+move_1(A,B):-dec_x(A,B).
+move_1(A,B):-dec_y(A,B).
+\end{lstlisting}
+As noticeable in Listing~\ref{lst:postres}, the solution is more succinct, with only 4 clauses
+used for the solution. Using \texttt{i\_postcon} however, allows to learn the predicate \texttt{move\_1}
+which corresponds to the predicate \texttt{adjacent/2} previously mentioned.\\
+
+Before diving into the timing analysis for these two cases, a third one deserves to be mentioned where \texttt{legal\_position/1}
+is replaced by the two conjuncts that defined it, namely \texttt{is\_free/1} (which checks whether a position is not an obstacle) and
+\texttt{in\_range/1} (which checks if a position is in bounds).
+In order to work on this task, a new metarule is introduced: \texttt{metarule([[P,Q,R,S],[P,A,B],[[Q,A,B],[R,B],[S,B]]).])}. This metarule,
+to which we will refer to as \emph{double postcondition} shapes the resulting clause with two different postconditions.\\
+The result is quite intuitive:
+\begin{lstlisting}[language=Prolog, caption=\emph{Double postcondition} result, belowcaptionskip=1cm]
+move(A,B):-inc_x(A,B),in_range(B),is_free(B).
+move(A,B):-inc_y(A,B),in_range(B),is_free(B).
+move(A,B):-dec_x(A,B),in_range(B),in_range(B).
+move(A,B):-dec_y(A,B),in_range(B),is_free(B).
+\end{lstlisting}
+
+Finally, Table~\ref{tab:walk_res} offers an overview of the timings of these three slightly different implementations. These results highlight the impact that
+one more clause or just a slightly increased clause length can have on time performance. Concluding, Metagol is affected by a trade-off between expressiveness and performance.
+.
+{\rowcolors{2}{gray!50!}{}
+\begin{center}
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{ |c|c|c| } 
+        \hline
+        \texttt{postcon} & \texttt{i\_postcon} & \texttt{double\_postcon} \\ \hline
+        0.047 & 0.121 & 0.156 \\ 
+        \hline
+    \end{tabular}
+    \caption{\label{tab:walk_res}\texttt{learning\_to\_walk.pl} performances (seconds).}
+    \end{table}
+\end{center}
+}
+
+\subsubsection{\texttt{learning\_to\_travel\_with\_memory.pl}}
+This program's task is to learn the predicate \texttt{reach(A,B,L)}, where \texttt{A} and \texttt{B} are cells and
+\texttt{L} is a list containing the path from \texttt{A} to \texttt{B}.\\
+In this case, the background knowledge already includes the predicate \texttt{move/2} previously learned with \texttt{learning\_to\_walk.pl}.
+The metarules used are the following:
+\begin{lstlisting}[label={lst:metaltm}, language=Prolog, caption=Metarules in \texttt{learning\_to\_travel\_with\_memory.pl}, belowcaptionskip=1cm]
+metarule(recursion, [P,Q], [P,A,B,[A|L1]], [[Q,A,C], [P,C,B,L1]]).
+metarule(ident, [P,Q], [P,A,B], [[Q,A,B]]).
+metarule(ident2, [P,Q], [P,A,B,[A,B]], [[Q,A,B]]).
+\end{lstlisting}
+Focussing on the \texttt{recursion} metarule in Listing~\ref{lst:metaltm}, its recursive component lays in the fact that it enforces to reuse in its body the predicate used
+in the head (\texttt{P}). It is fair to mention that no elaborated technique was used in order to understand which metarule would fit best for the given task. This metarule
+was simply chosen because it represented the rule shape we would have used to \emph{"manually"} define \texttt{reach/3}.\\
+
+Touching on the examples being used, only one positive example was needed. No negative examples were used.
+\newpage

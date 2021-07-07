@@ -6,7 +6,7 @@ Metagol is a system used for ILP which relies on meta-interpretative learning.\\
 Using Metagol, four key components need to be defined:
 \begin{itemize}
     \item \textbf{Metarules \((M)\).} Metarules are used to define the \emph{language bias} of the task. A large number metarules allows for less strict language bias, hence a larger search space in which to find a solution. 
-    \item \textbf{Background Knowledge \((BK)\).} The knowledge the system is initially assumed to have about the task to be carried out.
+    \item \textbf{Background Knowledge \((BK)\).} The knowledge the system is initially assumed to have about the task to be carried out. It is a set of Prolog rules that the system can use either directly or indirectly in order to induce the hypothesis.
     \item \textbf{Positive Examples \((E^+)\).}
     \item \textbf{Negative Examples \((E^-)\).}
 \end{itemize}
@@ -15,11 +15,10 @@ With these four components defined, Metagol will try to find a solution running 
     \item Select a positive example to be proven.
     \item Try to prove the example using the existing \(BK\) or previously induced clauses.
     \item (If step 2 did not work) Unify the example with the head of a metarule and repeat steps 1,2 and 3 for each atom in the body of the obtained rule.
-    \item Once the hypothesis is proven to be complete (all the positive examples have been proven and covered), test its consistency. If any negative example is covered, backtrack.
+    \item Once the hypothesis is proven to be complete (all the positive examples have been proven and covered), test its consistency. If any negative example is covered, backtrack to a choice made in step 3 which, supposedly, led to this situation.
 \end{enumerate}
-
-In this brief illustration of Metagol, the process of \emph{predicate invention} is not covered due to a lack of time. Our findings about this process mainly derive
-from experimental experience and have no theoretical backup.
+In this brief illustration of Metagol, the process of \emph{predicate invention} is not covered due to a lack of time to further study it. Our findings about this process mainly derive
+from experimental experience and have no theoretical backup. Nonetheless, we will still point out the influence it had on our results.
 
 
 \subsection{ILASP}
