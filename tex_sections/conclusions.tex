@@ -54,10 +54,37 @@ found the right hypothesis.
 \subsection{Learning \texttt{reach/3} with \emph{tail recursion}}
 Being \emph{"solving the Maze problem"} part of the title and one of the main goals of this project, we were
 quite surprised that the \texttt{reach/3} predicate learned in our implementations was not able to find a path
-in our Maze (Figure~\ref{fig:our})
+in our Maze (Figure~\ref{fig:our}).\\
+By studying the trace when querying Prolog with \texttt{reach((1,1), (2,5), L)},
+we noticed that the search of the path would get stuck into a loop, going back and forth from cells \texttt{(5,2)} and
+\texttt{(5,3)}. The reason of this behavior is related to the (partly) declarative nature of Prolog. The \texttt{reach/3}
+predicate defined as in Listing~\ref{lst:res_rfsm} falls into a loop because, when getting at cell \texttt{(5,2)},
+the predicate \texttt{reach\_2/2} is unified with the head of the first rule found in the program. Since there is
+no \texttt{B} such that \texttt{inc\_x((5,2),B)}, Metagol will go for \texttt{dec\_y((5,2), B)}. This unification
+will not work either since there is no \texttt{B} such that \texttt{dec\_y((5,2), B)} (\texttt{(5,1)} is an obstacle). At
+last the unification is done with the rule at Line 5, with the body consisting to \texttt{inc\_y((5,2), B)} and hence moving
+to cell \texttt{(5,3)}.\\
+Now again, there is no \texttt{B} such that \texttt{inc\_x((5,3), B)}, so Metagol will unify the
+\texttt{reach\_2/2} predicate with the head of the rule at Line 4, going for \texttt{dec\_y((5,3), B)} and, hence,
+going back onto cell \texttt{(5,3)}.\\
+
+In order to solve this issue we were able to \emph{"manually"} define a procedure for \texttt{reach/3} as shown in Listing~\ref{lst:r_tr}
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.7]{img/ourMaze.png}
     \caption{The analyzed Maze}\label{fig:our}
 \end{figure}
+
+\begin{lstlisting}[label={lst:r_tr}, language=Prolog, caption=\texttt{reach/3} with tail recursion, belowcaptionskip=1cm]
+reach(A,B,L) :- reach_1(A,B,[A],L).
+reach_1(A,A,L,L).
+reach_1(A,B,Acc,L) :-
+    move(A,C),
+    non_member(C,Acc),
+    reach_1(C,B,[C|Acc],L). 
+\end{lstlisting}
+This procedure resembles the techniques for a loop preventing Depth-First Search. The idea behind this procedure is to store
+the already visited cells into an accumulator (\texttt{Acc}), and, at each step, check whether a new encountered cell has already
+been visited before.\\
+Unfortunately, we were not able to learn this procedure through any of the mentioned ILP techniques.
