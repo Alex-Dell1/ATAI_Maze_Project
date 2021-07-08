@@ -153,7 +153,7 @@ reach_2(A,B):-inc_y(A,B).
 reach_2(A,B):-dec_x(A,B).
 reach(A,B,[A|C]):-legal_position(B),reach_2(A,D),legal_position(D),reach(D,B,C).
 \end{lstlisting}
-On a last note, the metarule \texttt{recursion} in this case needed to be added a post-condition (on cell \texttt{B}) and a \emph{middle-condition}
+On a last note, the metarule \texttt{recursion} in this case needed to be added a post-condition (on cell \texttt{B}) and a \emph{"middle-condition"}
 (on cell \texttt{C}). It was quite hard to figure out why, but removing one of these atoms would lead to an endless execution of the program at a
 number of clauses equal to 2.
 

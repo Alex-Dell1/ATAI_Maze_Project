@@ -1,8 +1,14 @@
-\section{Performance comparison}\label{sec:perf}
+\section{Conclusions}\label{sec:perf}
+In this section we will offer some conclusions on our works, mainly by comparing them. We deemed important
+to compare HYPER, Metagol and ILASP from both the points of view of the performances and the approaches used
+to tackle the Maze problem.
 
-
+\subsection{Performance Analysis}
+Table~\ref{tab:prf_cmp} offers an overview of the timings of the main tasks presented in Section~\ref{sec:impl}.
 {\rowcolors{2}{gray!50!}{}
 \begin{center}
+    \begin{table}[h]
+    \centering
     \begin{tabular}{ |l|c|c|c| } 
         \hline
         Task & \textbf{HYPER} & \textbf{Metagol} & \textbf{ILASP} \\ \hline
@@ -13,5 +19,45 @@
         \texttt{move/2} and \texttt{reach/3} & 16.585 & 0.848 & NA \\ 
         \hline
     \end{tabular}
+    \caption{\label{tab:prf_cmp}Time comparison between the different systems for the main tasks (seconds)}
+\end{table}
 \end{center}
 }
+These timings allow us to conclude that the two grid dimensions used (\(5*5\) and \(7*7\)) had no impact on the task being learned.\\
+The three systems also share the same behavior when put in front of \emph{combined learning}. In fact, all three systems have shown to perform 
+far better when learning one task at a time than when learning more of them together (\texttt{move/2} and \texttt{reach/3}).\\
+Table~\ref{tab:prf_cmp} also shows a strong difference in performances between HYPER and Metagol. Given their similar approach, one could expect
+to also have similar performances. While HYPER uses a more general approach, Metagol owes its efficiency to metarules and the way they shape the language bias. This, though, does not come
+for free, since defining good metarules requires a very accurate initial idea of what the final solution should be like.\\
+
+Lastly, Table~\ref{tab:ex_cmp} shows the differences in execution time when using more positive examples than the minimum required. Metagol shows a slight 
+increase in computation time. This could be explained by the fact that Metagol needs to prove more positive examples, even though it has already
+found the right hypothesis.
+
+{\rowcolors{2}{gray!50!}{}
+\begin{center}
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{ |l|c|c|c| } 
+        \hline
+        \(|E^+|\) & \textbf{HYPER} & \textbf{Metagol} & \textbf{ILASP} \\ \hline
+        4 & INSERT & 0.056 & INSERT \\ 
+        8 & INSERT & 0.068 & INSERT \\
+        12 & INSERT & 0.072 & INSERT \\  
+        \hline
+    \end{tabular}
+    \caption{\label{tab:ex_cmp}Time comparison with increasing positive exmaples (seconds)}
+\end{table}
+\end{center}
+}
+
+\subsection{Learning \texttt{reach/3} with \emph{tail recursion}}
+Being \emph{"solving the Maze problem"} part of the title and one of the main goals of this project, we were
+quite surprised that the \texttt{reach/3} predicate learned in our implementations was not able to find a path
+in our Maze (Figure~\ref{fig:our})
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{img/ourMaze.png}
+    \caption{The analyzed Maze}\label{fig:our}
+\end{figure}
