@@ -6,7 +6,7 @@ The first task is learning to walk on the maze, considering adjacent cells and t
 
 \subsubsection{Learning to walk on adjacent cells}
 
-This is the ilasp code written for the pourpose, with some bit of background knowledge, definition of search space with language bias and some examples with all the different "cases".  Finding those examples has been pretty difficult because they must be "meaningful" and as such must capture all the different contexts and casistics.
+This is the ilasp code written for the pourpose, with some bit of background knowledge, definition of search space with language bias and some examples with all the different "cases".  Finding those examples have been pretty difficult because they must be "meaningful" and as such must capture all the different contexts and casistics.
 
 \newpage
 \begin{lstlisting}[language=Prolog]
@@ -48,9 +48,9 @@ succ(X, X+1) :- cell(X,_).
 #maxv(3).
 \end{lstlisting}
 
+Successor predicate have been inserted, it rapresent the simple "arithmetic" concept of successive numbers, it's important to define because ILASP doesn't include this "sum" operator bilt-in.
 In the language bias definition I used the "positive" and "anti-reflexive" options to reduce the search-space and found earlier the result. This options could be avoided.
 At \ref{fig:asd} the output of the script, with the learned rules, ILASP actually learned that "next" predicate is true for adjacent cells, based on that the movement on the grid will be possible.
-
 NB: this is equivalent to the predicate "adjacent" learned by my companions
 \begin{figure}
 	\centering
@@ -60,8 +60,9 @@ NB: this is equivalent to the predicate "adjacent" learned by my companions
 
 \newpage
 \subsubsection{Learning to walk on cells without obstacles}
-The next step is to consider obstacles on the grid, as discussed in the "background knowledge" in (ref). Here the goal is to find a new normal rule that represent the concet of a "valid move", in a cell without obstacles.
-
+The next step is to consider obstacles on the grid, as discussed in the Introduction part of the report. Here the goal is to find a new normal rule that represent the concet of a "valid move", in a cell without obstacles.
+Initially, a maze is defined, this is the same maze used by my companions for our work.
+This is the task written for the purpose:
 \newpage
 
 \begin{lstlisting}[language=Prolog]
@@ -116,6 +117,8 @@ next((V1,V2),(V1,V3)) :- cell(V1,V2), cell(V1,V3), succ(V2,V3).
 
 #maxv(3).
 \end{lstlisting}
+In the code the rules learned previously have been inserted and used in the search space. 
+Negative examples shows that no movement is possible TO obstacles and FROM obstacles, this 2 casistics are important for a correct learning.
 At \ref{fig:asd2} the output of the script, with the learned rules, ILASP actually learned this new "nextLegit" predicate that represent the concept of a valid move: a move from (or to) cells without obstacles.
 
 NB: this is equivalent to the "move" predicate learned by my companions.
@@ -125,10 +128,12 @@ NB: this is equivalent to the "move" predicate learned by my companions.
 	\caption{Learned rules - avoid obstacles}\label{fig:asd2}
 \end{figure}
 
-\newpage
 
+\newpage
+It's interesting to see that, setting 3 variables in the language bias, ilasp learned just 2 rules: it considers the cases when near cells share the same horizontal or vertical direction. 
+Probably, I would have write 4 rules using 4 different variables in a naive way, considering the "4 directions adjacency", but this tool finds a more compact solution.
 \subsubsection{using this rules to define an ASP model}
-having this rules in hand now is possible to define a model that solves our problem. Learned rules are reported exactly as they were on the ILASP scripts output. Some pieces are missing: some other rules need to be defined but they are quite intiuitive at this point. The code will be reported with the same grid discussed in ...
+having this rules in hand now is possible to define a model that solves our problem. Learned rules are reported exactly as they were on the ILASP scripts output. Some pieces are missing: some other rules need to be defined but they are quite intiuitive at this point. The maze reported on the encoding is the same used for the ilasp task.
  
  \newpage
 \begin{lstlisting}[language=Prolog]
