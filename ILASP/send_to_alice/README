@@ -1,0 +1,5 @@
+This folder contains scripts used for the project and discussed in the report.
+
+".las" files in this directory correspond to the ilasp tasks. They can be executed with the ilasp command (tested with version3).
+The "xlsx" files contains benchmark analysis conducted on scalability.
+ASP model directory contains the model constructed with learned rules, it can be easily launched with clingo.
