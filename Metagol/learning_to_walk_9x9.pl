@@ -1,6 +1,6 @@
 /*
     This program is used to learn the predicate move/2. It assumes that
-    it is already known how to check whether a cell belongs to a grid (7x7).
+    it is already known how to check whether a cell belongs to a grid (9x9).
 */
 
 :- use_module('metagol.pl').

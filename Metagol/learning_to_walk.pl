@@ -81,11 +81,17 @@ learn_to_walk :-
         move((2,1), (3,1)),
         move((4,2), (4,3)),
         move((3,1), (2,1)),
-        move((4,3), (4,2)),
-        move((3,1), (4,1)),
+        move((4,3), (4,2))
+        % Unnecessary positive examples:
+        /*move((3,1), (4,1)),
         move((5,2), (5,3)),
         move((2,1), (1,1)),
-        move((5,3), (5,2))
+        move((5,3), (5,2)),
+
+        move((1,1), (2,1)),
+        move((5,5), (4,5)),
+        move((5,4), (5,3)),
+        move((4,2), (4,3))*/
     ],
 
     Neg = [
@@ -93,6 +99,16 @@ learn_to_walk :-
         move((3,3), (3,4)),
         move((1,1), (0,1)),
         move((5,2), (5,1))
+        % Unnecessary negative examples:
+        /*move((4,5), (4,4)),
+        move((3,1), (3,2)),
+        move((4,2), (3,2)),
+        move((5,2), (6,2)),
+
+        move((5,4), (4,4)),
+        move((2,3), (2,4)),
+        move((5,3), (6,4)),
+        move((4,1), (4,0))*/
     ],
 
     learn(Pos, Neg).

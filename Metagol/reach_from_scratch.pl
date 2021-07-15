@@ -1,3 +1,8 @@
+/*
+    This program learns the reach/2 predicate. Which given two cells A, B in the Maze
+    checks whether, B is reachable from A.
+    It assumes it is NOT know how to move from a cell to another.
+*/
 :- use_module('metagol.pl').
 
 metagol:max_clauses(7).

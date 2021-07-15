@@ -1,6 +1,7 @@
 /*
     This program learns the reach/3 predicate. Which given two cells A, B in the Maze
     checks whether, B is reachable from A. It also stores the path in a list.
+    It assumes it is known how to move from a cell to another.
 */
 
 :- use_module('metagol.pl').
