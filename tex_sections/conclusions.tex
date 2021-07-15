@@ -14,7 +14,8 @@ Table~\ref{tab:prf_cmp} offers an overview of the timings of the main tasks pres
         Task & \textbf{HYPER} & \textbf{Metagol} & \textbf{ILASP} \\ \hline
         \texttt{adjacent/2} & 175.884 & 0.056 & 4.767 \\ 
         \texttt{move/2} & 0.063 & 0.047 & 5.343 \\ 
-        \texttt{move/2} (\(7*7\) grid) & INSERT & 0.054 & 5.432 \\ 
+        \texttt{move/2} (\(7*7\) grid) & INSERT & 0.054 & 5.432 \\
+        \texttt{move/2} (\(9*9\) grid) & INSERT & 0.023 & 5.381 \\
         \texttt{reach/3} & 1.577 & 0.027 & NA \\ 
         \texttt{move/2} and \texttt{reach/3} & 16.585 & 0.848 & NA \\ 
         \hline
@@ -23,7 +24,7 @@ Table~\ref{tab:prf_cmp} offers an overview of the timings of the main tasks pres
 \end{table}
 \end{center}
 }
-These timings allow us to conclude that the two grid dimensions used (\(5*5\) and \(7*7\)) had no impact on the task being learned.\\
+These timings allow us to conclude that the two grid dimensions used (\(5*5\), \(7*7\) \(9*9\)) had no impact on the task being learned.\\
 The three systems also share the same behavior when put in front of \emph{combined learning}. In fact, all three systems have shown to perform 
 far better when learning one task at a time than when learning more of them together (\texttt{move/2} and \texttt{reach/3}).\\
 Table~\ref{tab:prf_cmp} also shows a strong difference in performances between HYPER and Metagol. Given their similar approach, one could expect
@@ -32,7 +33,7 @@ for free, since defining good metarules requires a very accurate initial idea of
 
 Lastly, Table~\ref{tab:ex_cmp} shows the differences in execution time when using more positive examples than the minimum required. Metagol shows a slight 
 increase in computation time. This could be explained by the fact that Metagol needs to prove more positive examples, even though it has already
-found the right hypothesis.
+found the right hypothesis. This test was conducted on the learning of the predicate \texttt{move/2}.
 
 {\rowcolors{2}{gray!50!}{}
 \begin{center}
