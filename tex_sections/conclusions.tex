@@ -31,9 +31,10 @@ Table~\ref{tab:prf_cmp} also shows a strong difference in performances between H
 to also have similar performances. While HYPER uses a more general approach, Metagol owes its efficiency to metarules and the way they shape the language bias. This, though, does not come
 for free, since defining good metarules requires a very accurate initial idea of what the final solution should be like.\\
 
-Lastly, Table~\ref{tab:ex_cmp} shows the differences in execution time when using more positive examples than the minimum required. Metagol shows a slight 
-increase in computation time. This could be explained by the fact that Metagol needs to prove more positive examples, even though it has already
-found the right hypothesis. This test was conducted on the learning of the predicate \texttt{move/2}.
+Lastly, Table~\ref{tab:ex_cmp} shows the differences in execution time when using more positive than the minimum required.\\
+Metagol shows no significant increase in computation time. Although, with larger amount of example a more significant increase could be expected as it would be justified by the fact that Metagol needs to prove more positive examples, even though it has already
+found the right hypothesis.\\
+This test was conducted on the learning of the predicate \texttt{move/2}.
 
 {\rowcolors{2}{gray!50!}{}
 \begin{center}
@@ -41,13 +42,13 @@ found the right hypothesis. This test was conducted on the learning of the predi
     \centering
     \begin{tabular}{ |l|c|c|c| } 
         \hline
-        \(|E^+|\) & \textbf{HYPER} & \textbf{Metagol} & \textbf{ILASP} \\ \hline
-        4 & INSERT & 0.056 & 5.31 \\ 
-        8 & INSERT & 0.068 & 5.43 \\
-        12 & INSERT & 0.072 & 5.53 \\  
+        \(|E|\) & \textbf{HYPER} & \textbf{Metagol} & \textbf{ILASP} \\ \hline
+        8 & INSERT & 0.029 & 5.31 \\ 
+        16 & INSERT & 0.028 & 5.43 \\
+        24 & INSERT & 0.033 & 5.53 \\  
         \hline
     \end{tabular}
-    \caption{\label{tab:ex_cmp}Time comparison with increasing positive exmaples (seconds)}
+    \caption{\label{tab:ex_cmp}Time comparison with increasing examples (seconds)}
 \end{table}
 \end{center}
 }
