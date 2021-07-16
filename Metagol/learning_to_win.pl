@@ -89,7 +89,7 @@ reach(A,B):-
 %%% Here Prolog, this is what you should know. %%%
 body_pred(move/2).
 
-learn_to_win :-
+learn :-
 
     Pos = [
         path((1,1), (2,5))

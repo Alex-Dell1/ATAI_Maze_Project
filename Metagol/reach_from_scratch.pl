@@ -80,7 +80,7 @@ reach(A,B):-in_range(B),dec_y(A,B).
 reach(A,B):-legal_position(B),inc_y(A,C),legal_position(C),reach(C,B).
 reach(A,B):-dec_x(A,B).
 
-rfs :-
+learn :-
     Pos = [
         reach((1,1), (2,1)),
         reach((4,4), (4,3)),

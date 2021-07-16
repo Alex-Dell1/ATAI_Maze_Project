@@ -89,7 +89,7 @@ body_pred(move/2).
 
 %%% EXAMPLES %%%
 
-learn_to_travel :-
+learn :-
     Pos = [
         %reach((1,1), (2,1)),
         reach((1,1), (2,5))

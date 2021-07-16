@@ -103,7 +103,7 @@ body_pred(non_member/2).
 
 %%% EXAMPLES %%%
 
-lttm :-
+learn :-
     Pos = [
         reach((1,1), (2,1), [(2,1), (1,1)])
         %reach((1,1), (3,1), [(3,1), (2,1), (1,1)])

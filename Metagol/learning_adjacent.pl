@@ -61,7 +61,7 @@ body_pred(in_range/1).
 
 %%% EXAMPLES %%%
 
-learn_to_walk :-
+learn :-
     Pos = [
         move((2,1), (3,1)),
         move((4,2), (4,3)),
