@@ -1,0 +1,18 @@
+Instructions how to run the HYPER files.
+
+Consult the following files in prolog:
+
+hyper.pl
+util_ilp.pl
+parameters.pl
+
+ilp_task_adjacent.pl for predicate "adjacent" or
+ilp_task_move.pl for predicate  "move" or
+ilp_task_reach.pl for predicate "reach" or
+ilp_task_move_reach.pl for combined learning of "move" and "reach"
+
+maze.pl for the 5x5 maze or
+maze7.pl for the 7x7 maze or
+maze9.pl for the 9x9 maze
+
+Make sure the parameters are set as specified in the report.
