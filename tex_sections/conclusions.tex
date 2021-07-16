@@ -14,10 +14,10 @@ Table~\ref{tab:prf_cmp} offers an overview of the timings of the main tasks pres
         Task & \textbf{HYPER} & \textbf{Metagol} & \textbf{ILASP} \\ \hline
         \texttt{adjacent/2} & 175.884 & 0.056 & 4.767 \\ 
         \texttt{move/2} & 0.063 & 0.047 & 5.343 \\ 
-        \texttt{move/2} (\(7*7\) grid) & INSERT & 0.054 & 5.432 \\
-        \texttt{move/2} (\(9*9\) grid) & INSERT & 0.023 & 5.381 \\
+        \texttt{move/2} (\(7*7\) grid) & 0.0716 & 0.054 & 5.432 \\
+        \texttt{move/2} (\(9*9\) grid) & 0.0718 & 0.023 & 5.381 \\
         \texttt{reach/3} & 1.577 & 0.027 & NA \\ 
-        \texttt{move/2} and \texttt{reach/3} & 16.585 & 0.848 & NA \\ 
+        \texttt{move/2} and \texttt{reach/3} & 7.077 & 0.848 & NA \\ 
         \hline
     \end{tabular}
     \caption{\label{tab:prf_cmp}Time comparison between the different systems for the main tasks (seconds)}
@@ -43,9 +43,9 @@ This test was conducted on the learning of the predicate \texttt{move/2}.
     \begin{tabular}{ |l|c|c|c| } 
         \hline
         \(|E|\) & \textbf{HYPER} & \textbf{Metagol} & \textbf{ILASP} \\ \hline
-        8 & INSERT & 0.029 & 5.31 \\ 
-        16 & INSERT & 0.028 & 5.43 \\
-        24 & INSERT & 0.033 & 5.53 \\  
+        8 & 0.067 & 0.029 & 5.31 \\ 
+        16 & 0.065 & 0.028 & 5.43 \\
+        24 & 0.065 & 0.033 & 5.53 \\  
         \hline
     \end{tabular}
     \caption{\label{tab:ex_cmp}Time comparison with increasing examples (seconds)}
@@ -90,3 +90,15 @@ This procedure resembles the techniques for a loop preventing Depth-First Search
 the already visited cells into an accumulator (\texttt{Acc}), and, at each step, check whether a new encountered cell has already
 been visited before.\\
 Unfortunately, we were not able to learn this procedure through any of the mentioned ILP techniques.
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

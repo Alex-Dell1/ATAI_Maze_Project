@@ -1,8 +1,28 @@
 \section{Background}\label{sec:back}
 
 \subsection{HYPER}
+HYPER (Hypotheses refiner) is an ILP program, which has been developed by Prof. Dr. Ivan Bratko in 1999.\\
+The following inputs must be given to the tool:
+\begin{itemize}
+    \item \textbf{Background Knowledge \((BK)\).} A set of logic formulas from which the positive examples can be derived.
+    \item \textbf{Replacement of structured terms \((T)\).} Knowledge of how to refine structured terms like lists or coordinates.
+    \item \textbf{Start clause \((S)\).} The starting hypothesis, which will be refined. 
+    \item \textbf{Positive Examples \((E^+)\).}
+    \item \textbf{Negative Examples \((E^-)\).}
+\end{itemize}
+The learning procedure is as follows:
+\begin{itemize}
+    \item \textbf{Choose a start hypothesis.} It is important to choose it general enough to be complete (i.e. cover all positive examples).
+    \item \textbf{Continuously refine the hypothesis by:} 
+	\begin{enumerate}
+	\item Matching two variables of the same type or
+	\item Adding a goal from the background knowledge or
+	\item Refining a variable to background terms
+	\end{enumerate}
+\end{itemize}
+Details on HYPER can be found in "Prolog Programming for Artificial Intelligence" by Ivan Bratko (4th edition, chapter 21).
 \subsection{Metagol}
-Metagol is a system used for ILP which relies on meta-interpretative learning.\\
+Metagol is a system used for ILP, which relies on meta-interpretative learning.\\
 Using Metagol, four key components need to be defined:
 \begin{itemize}
     \item \textbf{Metarules \((M)\).} Metarules are used to define the \emph{language bias} of the task. A large number metarules allows for a less strict language bias, hence a larger search space in which to find a solution. 
