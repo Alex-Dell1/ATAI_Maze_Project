@@ -37,17 +37,22 @@ prolog_predicate( move(_,_)).
 
 start_clause( [ reach(X,Y,L)] / [X:cell,Y:cell,L:list1] ).    
   
-%  reach(A,A,[A]).
+%reach(A,A,[A]).
 %reach(A,B,[A|L]) :- move(A,C), reach(C,B,L).
   
 % positive and negative examples
 
-ex( reach( (1,1), (1,1), [(1,1)])).
-ex( reach( (1,1), (2,1), [(1,1), (2,1)])). 
+%ex( reach( (1,1), (1,1), [(1,1)])). % -> useless
+ex( reach( (1,1), (2,1), [(1,1), (2,1)])). % -> not necessary, reduces the number of hypotheses refined
 ex( reach( (3,1), (4,2), [(3,1), (4,1), (4,2)])).
+%ex( reach( (4,1), (5,3), [(4,1), (4,2), (5,2), (5,3)])). % -> useless
+%ex( reach( (4,1), (5,3), [(4,1), (4,2), (4,3), (5,3)])). % -> useless
 
-nex( reach( (4,2), (4,2), [])).
+%nex( reach( (4,2), (4,2), [])). % -> useless
 nex( reach( (1,1), (4,1), [(1,1), (2,1), (3,1), (4,3)])).
 nex( reach( (2,3), (2,3), [(1,1)])).
 nex( reach( (2,1), (3,3), [(2,1), (2,2), (2,3),(2,2)])).
 nex( reach( (3,1), (4,2), [(3,1), (4,1), (3,1)])).
+%nex( reach( (4,1), (4,1), [(2,1)])). % -> no change
+%nex( reach( (4,2), (4,5), [(4,2), (4,3), (4,4),(4,5)])). % -> no change
+%nex( reach( (2,1), (3,3), [(2,2), (2,3), (3,3)])). % -> no change

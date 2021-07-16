@@ -1,6 +1,6 @@
 %working_directory(Old, 'c:/users/claud/documents/AI & CS/02_Semester/ATAI/Project/HYPER').
 %[hyper, parameters, util_ilp, maze, ilp_task_move_reach].
-%induce(X).
+%induce(X), show_hyp(X).
 %max_proof_length( 7).   % Max. proof length, counting calls to preds. in hypothesis
 %max_clauses( 4).        % Max. number of clauses in hypothesis (hyper)
 %max_clause_length( 3).  % Max. number of literals in a clause
@@ -44,15 +44,16 @@ start_clause( [ reach(X,Y,L)] / [X:cell,Y:cell,L:list1] ).
 ex( move( (2,1), (3,1))). % go left
 nex( move( (2,1), (2,2))). % no obstacles
 
-ex( reach( (1,1), (1,1), [(1,1)])).
+%ex( reach( (1,1), (1,1), [(1,1)])). -> no effect
 ex( reach( (1,1), (2,1), [(1,1), (2,1)])). 
 ex( reach( (3,1), (4,2), [(3,1), (4,1), (4,2)])).
 
-nex( reach( (4,2), (4,2), [])).
 nex( reach( (1,1), (4,1), [(1,1), (2,1), (3,1), (4,3)])).
 nex( reach( (2,3), (2,3), [(1,1)])).
 nex( reach( (2,1), (3,3), [(2,1), (2,2), (2,3),(2,2)])).
 nex( reach( (3,1), (4,2), [(3,1), (4,1), (3,1)])).
+%nex( reach( (4,2), (4,2), [])). % -> decreases number of hypotheses generated slightly
+nex( reach( (2,1), (3,3), [(2,2), (2,3), (3,3)])). % -> increases number of hypotheses significantly when both neg. examples are added!
 
 
 
