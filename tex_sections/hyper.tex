@@ -1,4 +1,4 @@
-\subsection{HYPER}
+\subsection{HYPER}\label{sec:hyper}
 The scripts discussed in this section of the report can be found in the \texttt{HYPER} folder.\\
 
 \subsubsection{\texttt{Defining the maze}}
@@ -48,8 +48,7 @@ max_clauses( 2).
 max_clause_length( 3).  
 \end{lstlisting}
 To solve the task correctly, HYPER needs four positive examples, one for a move in each direction, and three negative examples, preventing moves to diagonal cells or far away cells.
-The concrete examples can be found in the source code.\\
-Solving the problem, HYPER generates 29,870 hypotheses of which 4,687 are refined and 11,482 are left to be refined, leading to the following "adjacent" predicate:
+The concrete examples can be found in the source code. HYPER generates 29,870 hypotheses of which 4,687 are refined and 11,482 are left to be refined, leading to the following "adjacent" predicate:
 \begin{lstlisting}[label={lst:adjacent_res}, language=Prolog, caption=Predicate "adjacent", belowcaptionskip=1cm]
 adjacent((A,B),(C,B)):-
   next(A,C).
@@ -57,7 +56,7 @@ adjacent((A,B),(A,C)):-
   next(B,C).
 \end{lstlisting}
 Adding four more positive examples (again one for each direction, so in sum having two for each direction) leads to exactly the same result with the same performance.\\
-Providing more negative examples of the same type (diagonal, far jumps) still leads to the correct result, but the performance decreases:\\
+Providing more negative examples of the same type (diagonal, far jumps) still leads to the correct result, but the performance decreases:
 Adding another diagonal move, 34,701 hypotheses have to be generated (5,492 refined, 13,588 left to be refined). Additionally adding another positive example does not impact the result. 
 Adding another far jump example further increases the number of hypotheses generated to 35,577 (5,720 refined, 14,068 left to be refined).\\
 Interestingly, for a correct result it is not necessary to give a negative example of the form "two cells are not adjacent if they are the same cell". On the contrary, adding such a negative example only increases the running time and the number of hypotheses generated to 34,950:
@@ -122,10 +121,10 @@ The learning algorithm is independent of the defined grid and the grid size:
 }
 
 \subsubsection{\texttt{Learning to travel}}
-In order to cover longer distances in the labyrinth, several moves must be made one after.
+In order to cover longer distances in the labyrinth, several moves must be made one after the other.
 To learn to travel is a prerequisite for finding paths in the maze. All cells visited on the path should be stored in a list, which leads to a recursive task.
-Therefore also the predicate "reach" which has to be learned has to be put as backliteral.
-Additionally it has to be provided in the term clause, how lists can be refined.
+Therefore also the predicate "reach", which has to be learned, has to be put as backliteral.
+Additionally, it has to be provided in the term clause, how lists can be refined.
 \begin{lstlisting}[label={lst:travel}, language=Prolog, caption=Learning the predicate "move", belowcaptionskip=1cm]
 Background literals:
 backliteral( move(X,Y), [X:cell], [Y:cell]).
@@ -207,7 +206,7 @@ Giving another negative eample the number of hypotheses generated can be improve
 \begin{lstlisting}[label={lst:comb_neg}, language=Prolog, caption=Additional example for combined learning of "move" \& "reach", belowcaptionskip=1cm]
 nex( reach( (4,2), (4,2), [])).
 \end{lstlisting}
-Adding the following two negative examples, heavily increases the number of hypotheses generated to 31,633, of which 2,154 are refined. Increasing the parameters "max\_proof\_length" and "max\_clauses" does not solve this issue.
+Adding the following two negative examples, heavily increases the number of hypotheses generated to 31,633, of which 2,154 are refined. Increasing the parameters does not resolve this issue.
 \begin{lstlisting}[label={lst:comb_neg2}, language=Prolog, caption=Additional example for combined learning of "move" \& "reach", belowcaptionskip=1cm]
 nex( reach( (4,2), (4,2), [])).
 nex( reach( (2,1), (3,3), [(2,2), (2,3), (3,3)])).

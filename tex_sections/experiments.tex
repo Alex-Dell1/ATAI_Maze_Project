@@ -1,8 +1,8 @@
 \newpage
 \section{Experiments}\label{sec:exp}
-Our experiments are based on the timing performances of the three ILP techniques
-we have used. We have set up our implementations in order to compare them in the
-fairest way possible.\\
+Our experiments are based on the three ILP techniques discussed in the previous sections. 
+During the implementation, value was placed on the best possible comparability. For example, all three realisations use the same labyrinths and logically identical or similar predicates.
+However, since the implementations of the three techniques were run on different computers, the timing results are only comparable to a limited extent.\\
 Table~\ref{tab:prf_cmp} offers an overview of the timings of the main tasks presented in Section~\ref{sec:impl}.
 {\rowcolors{2}{gray!50!}{}
 \begin{center}
@@ -23,27 +23,26 @@ Table~\ref{tab:prf_cmp} offers an overview of the timings of the main tasks pres
 \end{table}
 \end{center}
 }
-The timings show how the Maze dimension does not have an impact on the learning process (as for ILASP this is described
-in another context at Section~\ref{sec:ilasp}).\\
-The table also shows the similar behavior between HYPER and Metagol with regards of the \emph{combined
+The maze dimension do not seem to have an impact on the learning process (as for ILASP this is described
+in another context at Section~\ref{sec:ilasp} and for Hyper in section ~\ref{sec:hyper}).\\
+Table ~\ref{tab:prf_cmp} also shows the similar behavior between HYPER and Metagol in terms of the \emph{combined
 learning} of predicates \texttt{move/2} and \texttt{reach/3}. Both the implementations seem to
-perform better in learning complex predicates when these are split in smaller tasks.
-Comparing timings altogether, it is possible to notice how Metagol performs much better than the other
-two systems. Given the similar approach between HYPER and Metagol, one could expect them
+perform better in learning complex predicates when the tasks are split into smaller ones.
+Comparing the timings overall, it can be noticed, that Metagol performs much better than the other
+two systems. Given the similar approaches of HYPER and Metagol, one could expect them
 to also have similar performances. While HYPER uses a more general approach, Metagol owes its efficiency to metarules and the way they shape the language bias. This, though, does not come
 for free, since defining good metarules requires a very accurate initial idea of what the final solution should be like.\\
 
-Time performances were also measured to analyze the behavior of the systems with different quantities of examples offered.
-For this experiment, we tested the implementations to learn the predicate \texttt{move/2} (\emph{learning to walk}) on more redundant examples than needed to check
-whether this impacted time performances. The results of these experiment can be seen in Table~\ref{tab:ex_cmp}.
-
+The time performances are also measured in order to analyze the behavior of the systems with different sets of positive examples.
+For this experiment, we measured the performances of the implementations to learn the predicate \texttt{move/2} (\emph{learning to walk}) on more redundant examples than are actually needed.
+The results of these experiment can be seen in Table~\ref{tab:ex_cmp}.
 {\rowcolors{2}{gray!50!}{}
 \begin{center}
     \begin{table}[h]
     \centering
     \begin{tabular}{ |l|c|c|c| } 
         \hline
-        \(|E|\) & \textbf{HYPER} & \textbf{Metagol} & \textbf{ILASP} \\ \hline
+        \(|E^+|\) & \textbf{HYPER} & \textbf{Metagol} & \textbf{ILASP} \\ \hline
         8 & 0.067 & 0.029 & 5.31 \\ 
         16 & 0.065 & 0.028 & 5.43 \\
         24 & 0.065 & 0.033 & 5.53 \\  
@@ -53,9 +52,9 @@ whether this impacted time performances. The results of these experiment can be 
 \end{table}
 \end{center}
 }
-The timings show how the different quantities of examples used do not impact timing performances. This may not be true for way larger
-quantities, for instance, Metagol would have to prove all those examples one at a time and, although this would be a trivial task,
-with examples stacking up, it could start take a slightly considerable amount of time.
+The timing measurements show, that the different quantities of positive examples do not impact the performances. However, this may not be true for way larger
+quantities. 
+For example, Metagol would have to prove all of these examples one after the other, and although this would be a trivial task, very large numbers of positive examples could have run-time effects.
 
 \subsection{Learning \texttt{reach/3} with \emph{tail recursion}}
 Being \emph{"solving the Maze problem"} part of the title and one of the main goals of this project, we were
