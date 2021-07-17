@@ -3,14 +3,15 @@ Although many have already been offered in Section~\ref{sec:exp},
 we would still like to add some more conclusions regarding the approach
 that the system required with respect to the tasks.\\
 Many of the times, the three systems required completely different approaches
-to solve the encountered problems. This was particularly evident for ILASP, since,
+to solve the same problems encountered on the way. This was particularly evident for ILASP, since,
 differently from HYPER and Metagol, it is based on ASP. This is further proven when
 considering the learning of predicate \texttt{reach/2}, as the paradigm of Answer Set
 Programming makes this task extremely trivial and almost useless in the context of
 Maze solving.\\
 On a bright side, these differences in approach allowed us to better understand our
 systems and exploit their traits. As for Metagol it immediately highlighted how powerful metarules can be for
-time performances. As for HYPER and ILASP, it was possible to exploit their more general approach,
-without having to define any metarules, although their sensitivity to the offered examples requires
-quite a lot of attention.
+time performances when used correctly, which is not a trivial thing to do when there is no
+initial idea on how the final result should look like. As for HYPER and ILASP, it was possible to exploit
+their more general approach as they do not require any metarules, although a lot of attention is required
+when defining the examples given the sensitivity these systems have with respect to both positive and negative ones.
 
